@@ -1,0 +1,294 @@
+/* --- STYLES GENERAUX --- */
+.home-page {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #2b2b2b;
+  overflow-x: hidden;
+}
+
+.x-small { font-size: 0.75rem; }
+.z-index-1 { z-index: 1; }
+
+/* Couleurs spécifiques */
+.text-turquoise { color: #00dfc4; }
+.text-teal { color: #0d9488; }
+.text-orange { color: #ff5722; }
+.link-teal { color: #0d9488; transition: color 0.2s; }
+.link-teal:hover { color: #0f766e; }
+
+/* Badges et Tags */
+.section-tag-orange {
+  color: #ff5722;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.section-tag-light {
+  color: #00dfc4;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+/* --- SECTION 1 : HERO BANNER --- */
+.hero-section {
+  background-color: #092f2c;
+  background-image: url('/assets/imgs/Section_sol.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  /* background: linear-gradient(90deg, rgba(9, 47, 44, 0.92) 0%, rgba(13, 148, 136, 0.75) 100%); */
+}
+
+.btn-turquoise-fill {
+  background-color: #00dfc4;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-turquoise-fill:hover {
+  background-color: #00c4ad;
+  transform: translateY(-2px);
+}
+
+.btn-light-outline {
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.btn-light-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Animations d'apparition douces sur le Hero */
+.hero-title {
+  animation: slideDown 0.8s ease-out forwards;
+}
+.hero-subtitle {
+  animation: fadeIn 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+.hero-buttons {
+  animation: slideUp 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+/* --- SECTION 2 : ENGAGEMENTS & ETAPES --- */
+.icon-check-circle {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  background-color: #e6f4f1;
+  color: #0d9488;
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+.badge-rge-mini {
+  background-color: #3b0764;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.step-card {
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-color: #0d9488;
+}
+
+.step-badge {
+  background-color: #0d9488;
+  color: #fff;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem;
+}
+
+.expertise-card {
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+.expertise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+}
+
+.btn-arrow-circle {
+  width: 32px; height: 32px;
+  background-color: #0d9488;
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+.expertise-card:hover .btn-arrow-circle {
+  transform: scale(1.1);
+  background-color: #ff5722;
+}
+
+/* --- SECTION 3 : AVANT / APRÈS --- */
+.badge-check-teal {
+  color: #0d9488;
+  font-weight: bold;
+}
+
+.btn-teal-solid {
+  background-color: #0d9488;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.btn-teal-solid:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+}
+
+.before-after-box {
+  background-color: #e6f4f1;
+}
+
+.badge-label-avant {
+  position: absolute;
+  top: 15px; left: 15px;
+  background-color: rgba(9, 47, 44, 0.85);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.badge-label-apres {
+  position: absolute;
+  top: 15px; right: 15px;
+  background-color: #0d9488;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* --- SECTION 4 : POURQUOI CHOISIR ADTB --- */
+.trust-dark-section {
+  background-color: #062826;
+}
+
+/* --- SECTION 6 : AVIS ET FORMULAIRE AVEC IMAGE EN FOND --- */
+.quote-mark {
+  font-size: 2.5rem;
+  color: #0d9488;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+.testimonial-card {
+  border-color: #e5e7eb;
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* BANNIÈRE AVEC DOUBLE FOND (IMAGE + OVERLAY TURQUOISE) */
+.devis-banner-wrapper {
+  position: relative;
+  /* background-color: #e6f4f121; */
+}
+
+.devis-bg-image {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background-image: url('/assets/imgs/1d43b3a62ac96fe5edab87504b713d603592ffed.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.devis-bg-overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.062) 0%, rgba(13, 148, 137, 0.644) 100%);
+  z-index: 0;
+}
+
+.icon-circle {
+  font-size: 1.2rem;
+}
+
+.form-card {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn-teal-submit {
+  background-color: #0d9488;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-teal-submit:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+}
+
+
+.devis-banner-wrapper p {
+  color: #4b5563 !important; /* Un gris foncé bien lisible et élégant sur le fond */
+}
+
+
+/* Correction de l'affichage des icônes personnalisées */
+.custom-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0; /* Empêche l'icône de se faire écraser dans un flexbox */
+}
+
+/* Si tu as des icônes dans la section "Pourquoi choisir ADTB" qui nécessitent un peu plus d'espace */
+.stat-icon .custom-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.custom-check-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0; /* Empêche l'icône de se déformer */
+}
+
+
+
+/* --- ANIMATIONS KEYFRAMES --- */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

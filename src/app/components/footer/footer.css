@@ -1,0 +1,159 @@
+/* --- 1. BANNIÈRE SUPÉRIEURE --- */
+.cta-banner {
+  background-color: #0d9488; /* Couleur de secours si l'image met du temps à charger */
+  position: relative;
+}
+
+/* Image d'arrière-plan texturée (tu pourras remplacer l'URL par ton image exportée de Figma dans assets/) */
+.banner-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../../public/assets/imgs/f6723b86999fdda8811059a78b6f549c0dc9c219.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* Superposition de couleur turquoise pour obtenir le même rendu que la maquette */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.95) 0%, rgba(15, 118, 109, 0.048) 100%);
+  z-index: 0;
+}
+
+.badge-square {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ff5722; /* Carré orange caractéristique */
+}
+
+.text-highlight {
+  color: #fff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Icônes réseaux sociaux de la bannière */
+.social-icon-btn {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+  background-color: #fff;
+  color: #0d9488;
+  transform: translateY(-2px);
+}
+
+
+/* --- 2. SECTION CONTACT INTERMÉDIAIRE --- */
+.badge-square-orange {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ff5722;
+}
+
+.text-orange {
+  color: #ff5722;
+}
+
+.text-dark-custom {
+  color: #111827;
+}
+
+/* Bouton "Demander mon devis" en orange vif */
+.btn-demander-devis {
+  background-color: #ff5722;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.3);
+}
+
+.btn-demander-devis:hover {
+  background-color: #f4511e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+  color: #fff;
+}
+
+
+/* --- 3. FOOTER PRINCIPAL (Fond Sombre Canard) --- */
+.main-footer-bg {
+  background-color: #062826; /* Vert très sombre et profond */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  padding-left: 4px; /* Petit effet de glissement élégant au survol */
+}
+
+/* Cercles d'icônes du footer */
+.footer-icon-circle {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.footer-icon-circle:hover {
+  background-color: #0d9488;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Badge RGE */
+.rge-badge-box {
+  background-color: #4c1d95; /* Violet caractéristique du label RGE */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rge-badge-tag {
+  background-color: #6d28d9;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+/* Séparateur et liens de bas de page */
+.footer-divider {
+  border-color:  rgba(13, 148, 136, 0.95);
+}
+
+.footer-bottom-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom-link:hover {
+  color: #fff;
+}
