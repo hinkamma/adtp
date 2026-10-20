@@ -128,14 +128,27 @@
 }
 
 .btn-arrow-circle {
-  width: 32px; height: 32px;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  border-radius: 50% !important; /* Sphère parfaite */
   background-color: #0d9488;
-  color: #fff;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease;
+  flex-shrink: 0 !important; /* EMPÊCHE la déformation flexbox */
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.btn-arrow-circle i {
+  font-size: 1rem;
+  line-height: 1;
+  color: #ffffff !important;
 }
 .expertise-card:hover .btn-arrow-circle {
   transform: scale(1.1);
@@ -254,6 +267,8 @@
 }
 
 
+
+
 /* Correction de l'affichage des icônes personnalisées */
 .custom-icon {
   width: 24px;
@@ -291,4 +306,109 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+
+/* --- SECTION 1 : HERO BANNER (Optimisé Mobile & Senior Animation) --- */
+.hero-section {
+  background-color: #092f2c;
+  background-image: url('/assets/imgs/2acd88543217d511f3cd0023043ce2b6eeb7c915.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(9, 47, 44, 0.95) 0%, rgba(13, 148, 136, 0.82) 100%);
+  z-index: 0;
+}
+
+/* Typographie adaptative fluide sans rupture sur mobile */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  animation: heroSlideDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-buttons {
+  animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  opacity: 0;
+}
+
+/* Sur mobile, les boutons s'empilent proprement en pleine largeur pour un clic tactile aisé */
+@media (max-width: 575.98px) {
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.btn-turquoise-fill {
+  background-color: #00dfc4;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 223, 196, 0.25);
+}
+.btn-turquoise-fill:hover {
+  background-color: #00c4ad;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 223, 196, 0.35);
+}
+
+.btn-light-outline {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-light-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* --- KEYFRAMES D'ANIMATION HAUT DE GAMME --- */
+@keyframes heroSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

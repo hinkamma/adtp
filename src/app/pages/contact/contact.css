@@ -1,0 +1,105 @@
+/* --- STYLES GÉNÉRAUX DE LA PAGE CONTACT --- */
+.contact-page {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #2b2b2b;
+  overflow-x: hidden;
+}
+
+.x-small { font-size: 0.75rem; }
+.z-index-1 { z-index: 1; }
+
+.text-orange { color: #ff5722; }
+.section-tag-orange {
+  color: #ff5722;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.orange-divider {
+  width: 40px;
+  height: 3px;
+  background-color: #ff5722;
+  border-radius: 2px;
+}
+
+/* --- SECTION 1 : HERO --- */
+.contact-hero {
+  background-color: #092f2c;
+  background-image: url('/assets/imgs/1d43b3a62ac96fe5edab87504b713d603592ffed.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, rgba(9, 47, 44, 0.92) 0%, rgba(13, 148, 136, 0.75) 100%);
+}
+
+.min-vh-40 {
+  min-height: 40vh;
+}
+
+/* --- SECTION 2 : CARTES DE CONTACT --- */
+.contact-info-card {
+  border: 1px solid #0d9488;
+  background-color: #fff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contact-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.1);
+}
+
+.contact-link {
+  color: #0d9488;
+  transition: color 0.2s ease;
+}
+.contact-link:hover {
+  color: #ff5722;
+}
+
+/* --- SECTION 3 : BANNIÈRE FORMULAIRE AVEC IMAGE DE FOND ET OVERLAY --- */
+.contact-banner-wrapper {
+  position: relative;
+  background-color: #e6f4f1;
+}
+
+.contact-bg-image {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('/assets/imgs/1d43b3a62ac96fe5edab87504b713d603592ffed.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.contact-bg-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(230, 244, 241, 0.048) 0%, rgba(13, 148, 137, 0.411) 100%);
+  z-index: 0;
+}
+
+.form-card {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn-teal-submit {
+  background-color: #0d9488;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-teal-submit:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+}
+
+/* Alignement des icônes personnalisées */
+.custom-icon {
+  object-fit: contain;
+  flex-shrink: 0;
+}
