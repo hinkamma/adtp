@@ -1,0 +1,79 @@
+
+<!-- FIL D'ARIANE STRUCTURÉ -->
+<div class="breadcrumb-container py-3 border-bottom">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 small">
+        <li class="breadcrumb-item">
+          <a routerLink="/" class="text-decoration-none text-muted">Accueil</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a routerLink="/prestations" class="text-decoration-none text-muted">Prestations</a>
+        </li>
+        <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">
+          Nettoyage et traitement hydrofuge
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- SECTION DÉTAIL EXPERTISE / PRESTATION -->
+<section class="expertise-detail-section position-relative overflow-hidden py-5">
+  <!-- Fond biseauté en arrière-plan (Blanc à gauche / Vert d'eau à droite) -->
+  <div class="diagonal-bg"></div>
+
+  <div class="container position-relative z-index-1 py-3 py-md-5">
+    <div class="row align-items-center g-4 g-lg-5">
+      
+      <!-- Colonne de Gauche : Contenu Texte -->
+      <div class="col-lg-6 pe-lg-4">
+        <!-- Sur-titre en Orange -->
+        <span class="section-tag-orange text-uppercase fw-bold d-block mb-2">
+          NETTOYAGE ET TRAITEMENT HYDROFUGE
+        </span>
+
+        <!-- Titre Principal -->
+        <h2 class="display-6 fw-bold text-dark mb-4 lh-sm">
+          Une toiture propre et protégée durablement
+        </h2>
+
+        <!-- Description -->
+        <p class="text-secondary small lh-lg mb-4">
+          Préservez votre couverture grâce au nettoyage et au traitement hydrofuge de toiture. ADTB élimine les mousses et les salissures, tout en renforçant la protection de vos tuiles contre l'humidité et les infiltrations d'eau.
+        </p>
+
+        <!-- Liste des 3 puces avec icônes personnalisées depuis /assets/icons/ -->
+        <ul class="list-unstyled d-flex flex-column gap-3 mb-4 ps-0">
+          <li class="d-flex align-items-center gap-2 small fw-bold text-dark">
+            <img src="/assets/icons/SVG.png" alt="Check" width="20" height="20" class="custom-check-icon">
+            <span>Démoussage et nettoyage de toiture</span>
+          </li>
+          <li class="d-flex align-items-center gap-2 small fw-bold text-dark">
+            <img src="assets/icons/SVG.png" alt="Check" width="20" height="20" class="custom-check-icon">
+            <span>Traitement hydrofuge des tuiles</span>
+          </li>
+          <li class="d-flex align-items-center gap-2 small fw-bold text-dark">
+            <img src="assets/icons/SVG.png" alt="Check" width="20" height="20" class="custom-check-icon">
+            <span>Protection contre l'humidité et les infiltrations d'eau</span>
+          </li>
+        </ul>
+
+        <!-- Bouton Devis Gratuit -->
+        <div class="pt-2">
+          <a routerLink="/devis" class="btn btn-teal-devis px-4 py-3 fw-bold text-white d-inline-flex align-items-center">
+            Obtenir mon devis gratuit <span class="ms-2">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne de Droite : Image encadrée dans un cadre blanc avec ombre -->
+      <div class="col-lg-6">
+        <div class="image-frame-wrapper p-2 bg-white rounded-3 shadow-lg">
+          <img src="assets/imgs/Traitement humidité.png" alt="Nettoyage et traitement hydrofuge de toiture" class="img-fluid rounded-2 w-100 object-fit-cover" style="max-height: 380px;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

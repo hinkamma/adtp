@@ -113,7 +113,7 @@
                   <h3 class="h5 fw-bold mb-1">Toiture</h3>
                   <p class="text-muted small mb-0">Rénovation, réparation et recherche de fuites.</p>
                 </div>
-                <a routerLink="/prestations/renovation-interieure" class="btn-arrow-circle" aria-label="Voir la prestation">
+                <a routerLink="/expertise-toiture" class="btn-arrow-circle" aria-label="Voir la prestation">
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -128,7 +128,7 @@
                   <h3 class="h5 fw-bold mb-1">Nettoyage et traitement hydrofuge</h3>
                   <p class="text-muted small mb-0">Démoussage, nettoyage et protection durable de la toiture.</p>
                 </div>
-                <a routerLink="/prestations/renovation-interieure" class="btn-arrow-circle" aria-label="Voir la prestation">
+                <a routerLink="/expertise-isolation-hydrofuge" class="btn-arrow-circle" aria-label="Voir la prestation">
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -143,7 +143,7 @@
                   <h3 class="h5 fw-bold mb-1">Isolation thermique</h3>
                   <p class="text-muted small mb-0">Isolation des combles, des rampants et des murs par l'extérieur.</p>
                 </div>
-                <a routerLink="/prestations/renovation-interieure" class="btn-arrow-circle" aria-label="Voir la prestation">
+                <a routerLink="/expertiseIsolationThermique" class="btn-arrow-circle" aria-label="Voir la prestation">
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -158,7 +158,7 @@
                   <h3 class="h5 fw-bold mb-1">Traitement de l'humidité</h3>
                   <p class="text-muted small mb-0">Traitement des remontées capillaires, cuvelage et assainissement des murs.</p>
                 </div>
-                <a routerLink="/prestations/renovation-interieure" class="btn-arrow-circle" aria-label="Voir la prestation">
+                <a routerLink="/expertise-trait-humidite" class="btn-arrow-circle" aria-label="Voir la prestation">
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -241,10 +241,13 @@
     </div>
   </section>
 
+
   <!-- SECTION 4 : POURQUOI CHOISIR ADTB ? (VERT SOMBRE) -->
   <section class="trust-dark-section py-5 text-white">
     <div class="container py-4">
       <div class="row align-items-center">
+        
+        <!-- Texte de gauche -->
         <div class="col-lg-5 mb-4 mb-lg-0">
           <span class="section-tag-light">POURQUOI CHOISIR ADTB ?</span>
           <h2 class="display-6 fw-bold mt-2 mb-3">Votre maison entre de bonnes mains.</h2>
@@ -252,38 +255,50 @@
             De l'identification des problèmes à la réalisation des travaux, ADTB Rénov vous accompagne à chaque étape de votre projet de rénovation. Notre approche repose sur un diagnostic précis, des solutions adaptées à vos besoins et des travaux réalisés avec soin pour garantir des résultats durables et préserver votre habitation.
           </p>
         </div>
+
+        <!-- Grille des 4 statistiques -->
         <div class="col-lg-7">
-          <div class="row g-0 text-center border-start-md">
-            <div class="col-6 col-md-3 border-end p-3">
-              <div class="stat-icon mb-2">
-                <img src="assets/icons/Vector.png" alt="Icône expérience" width="32" height="32" class="custom-icon">
+          <div class="row g-2 g-md-0 text-center align-items-stretch">
+            
+            <!-- Bloc 1 -->
+            <div class="col-6 col-md-3 p-3 border-bottom border-end-md">
+              <div class="stat-icon mb-2 d-flex justify-content-center align-items-center" style="min-height: 38px;">
+                <img src="assets/icons/Vector.png" alt="Icône expérience" width="30" height="30" class="custom-icon">
               </div>
               <h4 class="fw-bold h5 mb-1">17 ans</h4>
               <p class="x-small text-white-50 mb-0">d'expérience</p>
             </div>
-            <div class="col-6 col-md-3 border-end p-3">
-              <div class="stat-icon mb-2">
-                <img src="assets/icons/Vector (6).png" alt="Icône certification" width="32" height="32" class="custom-icon">
+
+            <!-- Bloc 2 -->
+            <div class="col-6 col-md-3 p-3 border-bottom border-end-md">
+              <div class="stat-icon mb-2 d-flex justify-content-center align-items-center" style="min-height: 38px;">
+                <img src="assets/icons/Vector (6).png" alt="Icône certification" width="30" height="30" class="custom-icon">
               </div>
-              <h4 class="fw-bold h5 mb-1">Une entreprise</h4>
+              <h4 class="fw-bold fs-6 mb-1">Une entreprise</h4>
               <p class="x-small text-white-50 mb-0">certifiée RGE</p>
             </div>
-            <div class="col-6 col-md-3 border-end p-3">
-              <div class="stat-icon mb-2">
-                 <img src="assets/icons/Vector.png" alt="Icône expérience" width="32" height="32" class="custom-icon">
+
+            <!-- Bloc 3 -->
+            <div class="col-6 col-md-3 p-3 border-end-md">
+              <div class="stat-icon mb-2 d-flex justify-content-center align-items-center" style="min-height: 38px;">
+                <img src="assets/icons/Vector.png" alt="Icône solutions" width="30" height="30" class="custom-icon">
               </div>
-              <h4 class="fw-bold h5 mb-1">Des solutions</h4>
+              <h4 class="fw-bold fs-6 mb-1">Des solutions</h4>
               <p class="x-small text-white-50 mb-0">durables</p>
             </div>
+
+            <!-- Bloc 4 -->
             <div class="col-6 col-md-3 p-3">
-              <div class="stat-icon mb-2">
-                 <img src="assets/icons/SVG (2).png" alt="Icône expérience" width="32" height="32" class="custom-icon">
+              <div class="stat-icon mb-2 d-flex justify-content-center align-items-center" style="min-height: 38px;">
+                <img src="assets/icons/SVG (2).png" alt="Icône accompagnement" width="30" height="30" class="custom-icon">
               </div>
-              <h4 class="fw-bold h5 mb-1">Un accompagnement</h4>
+              <h4 class="fw-bold fs-6 mb-1">Un suivi</h4>
               <p class="x-small text-white-50 mb-0">personnalisé</p>
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </section>

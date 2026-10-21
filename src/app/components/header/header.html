@@ -3,22 +3,22 @@
     <div class="d-flex align-items-center justify-content-between">
 
       <!-- Logo ADTB -->
-      <a routerLink="/" class="navbar-brand d-flex align-items-center m-0">
-        <img src="/assets/icons/ADTB_icon.png" alt="Logo ADTB" class="logo-img">
+      <a routerLink="/" (click)="closeMenu()" class="navbar-brand d-flex align-items-center m-0">
+        <img src="assets/icons/ADTB_icon.png" alt="Logo ADTB" class="logo-img">
       </a>
 
       <!-- Navigation Desktop -->
       <nav class="d-none d-lg-flex align-items-center gap-4">
-        <a routerLink="/prestations" class="nav-link-custom">Nos prestations</a>
-        <a routerLink="/realisations" class="nav-link-custom">Nos réalisations</a>
-        <a routerLink="/Contact" class="nav-link-custom">Contact</a>
+        <a routerLink="/prestations" routerLinkActive="active" class="nav-link-custom">Nos prestations</a>
+        <a routerLink="/realisations" routerLinkActive="active" class="nav-link-custom">Nos réalisations</a>
+        <a routerLink="/Contact" routerLinkActive="active" class="nav-link-custom">Contact</a>
       </nav>
 
       <!-- Zone droite : Bouton Téléphone séparé + Bouton Devis + Burger -->
       <div class="d-flex align-items-center gap-2 gap-md-3">
 
         <!-- Bouton Devis complet avec bloc icône et texte bien distincts -->
-        <a routerLink="/devis" class="btn-devis-wrapper d-flex align-items-center text-decoration-none">
+        <a routerLink="/devis" (click)="closeMenu()" class="btn-devis-wrapper d-flex align-items-center text-decoration-none">
           <!-- Bloc Icône Téléphone (Orange) -->
           <div class="icon-box d-flex align-items-center justify-content-center me-1 me-sm-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill text-white" viewBox="0 0 16 16">
@@ -49,9 +49,9 @@
     <!-- Menu Déroulant Mobile/Tablette -->
     <div class="mobile-menu d-lg-none collapse" [class.show]="isMenuOpen">
       <nav class="d-flex flex-column gap-2 py-3 border-top mt-2">
-        <a routerLink="/prestations" class="nav-link-custom">Nos prestations</a>
-        <a routerLink="/realisations" class="nav-link-custom">Nos réalisations</a>
-        <a routerLink="/Contact" class="nav-link-custom">Contact</a>
+        <a routerLink="/prestations" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom">Nos prestations</a>
+        <a routerLink="/realisations" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom">Nos réalisations</a>
+        <a routerLink="/Contact" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom">Contact</a>
       </nav>
     </div>
 
