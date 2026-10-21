@@ -11,21 +11,19 @@
       <nav class="d-none d-lg-flex align-items-center gap-4">
         <a routerLink="/prestations" routerLinkActive="active" class="nav-link-custom">Nos prestations</a>
         <a routerLink="/realisations" routerLinkActive="active" class="nav-link-custom">Nos réalisations</a>
-        <a routerLink="/Contact" routerLinkActive="active" class="nav-link-custom">Contact</a>
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link-custom">Contact</a>
       </nav>
 
-      <!-- Zone droite : Bouton Téléphone séparé + Bouton Devis + Burger -->
+      <!-- Zone droite : Bouton Devis + Burger -->
       <div class="d-flex align-items-center gap-2 gap-md-3">
 
-        <!-- Bouton Devis complet avec bloc icône et texte bien distincts -->
+        <!-- Bouton Devis -->
         <a routerLink="/devis" (click)="closeMenu()" class="btn-devis-wrapper d-flex align-items-center text-decoration-none">
-          <!-- Bloc Icône Téléphone (Orange) -->
           <div class="icon-box d-flex align-items-center justify-content-center me-1 me-sm-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill text-white" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
             </svg>
           </div>
-          <!-- Bloc Texte Devis (Vert Turquoise) -->
           <div class="text-box d-flex align-items-center justify-content-center px-3 text-white fw-bold">
             <span class="d-none d-sm-inline">Devis gratuit</span>
             <span class="d-inline d-sm-none">Devis</span>
@@ -33,7 +31,7 @@
           </div>
         </a>
 
-        <!-- Bouton Menu Burger (Masqué sur Desktop) -->
+        <!-- Bouton Menu Burger -->
         <button class="navbar-toggler d-lg-none border-0 bg-transparent p-2" type="button" (click)="toggleMenu()" aria-label="Toggle navigation">
           <span class="burger-icon">
             <span class="line"></span>
@@ -45,15 +43,14 @@
       </div>
 
     </div>
-
+    
     <!-- Menu Déroulant Mobile/Tablette -->
-    <div class="mobile-menu d-lg-none collapse" [class.show]="isMenuOpen">
+    <div id="mobileMenuDropdown" class="mobile-menu d-lg-none">
       <nav class="d-flex flex-column gap-2 py-3 border-top mt-2">
-        <a routerLink="/prestations" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom">Nos prestations</a>
-        <a routerLink="/realisations" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom">Nos réalisations</a>
-        <a routerLink="/Contact" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom">Contact</a>
+        <a routerLink="/prestations" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom py-2 px-2 rounded">Nos prestations</a>
+        <a routerLink="/realisations" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom py-2 px-2 rounded">Nos réalisations</a>
+        <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom py-2 px-2 rounded">Contact</a>
       </nav>
     </div>
-
   </div>
 </header>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-expertise-charpente',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './expertise-charpente.html',
   styleUrl: './expertise-charpente.css',
 })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -11,14 +11,19 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
 
-
-  isMenuOpen = false;
-
+  // Bascule l'affichage du menu mobile directement via une classe sur l'élément
   toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+    const mobileMenu = document.getElementById('mobileMenuDropdown');
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('show-menu');
+    }
   }
 
+  // Ferme le menu lorsqu'on clique sur un lien
   closeMenu(): void {
-    this.isMenuOpen = false;
+    const mobileMenu = document.getElementById('mobileMenuDropdown');
+    if (mobileMenu) {
+      mobileMenu.classList.remove('show-menu');
+    }
   }
 }

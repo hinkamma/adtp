@@ -1,0 +1,155 @@
+/* Couleurs de la charte ADTB */
+.text-orange { color: #ff5722 !important; }
+.text-teal { color: #0d9488 !important; }
+.bg-teal { background-color: #0d9488 !important; }
+.bg-teal-light { background-color: #00dfc4 !important; }
+
+.btn-teal {
+  background-color: #0d9488;
+  border-color: #0d9488;
+  transition: background-color 0.2s ease;
+}
+.btn-teal:hover {
+  background-color: #0b7d74;
+  border-color: #0b7d74;
+}
+
+.btn-teal-sm {
+  background-color: #0d9488;
+  font-size: 0.85rem;
+}
+.btn-teal-sm:hover {
+  background-color: #0b7d74;
+}
+
+/* Hero Section avec fond sombre et opacité */
+.hero-realisations {
+  background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  padding: 100px 0;
+}
+
+/* Section Avantages fond sombre */
+.advantages-section {
+  background-color: #1a1c23; /* Teinte sombre fidèle à la maquette */
+}
+
+/* Séparateurs verticaux discrets entre les colonnes sur grand écran */
+@media (min-width: 992px) {
+  .advantage-col:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Style des textes secondaires et des icônes */
+.advantages-section p {
+  line-height: 1.5;
+}
+
+.custom-icon {
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Rend les icônes blanches si ce sont des SVG neutres */
+}
+
+
+/* Bullet orange minuscule */
+.bullet-orange {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ff5722;
+  border-radius: 50%;
+}
+
+/* Effets cartes chantiers */
+.border-hover {
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent !important;
+}
+.border-hover:hover {
+  border-left-color: #0d9488 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+}
+
+/* Lignes d'accentuation sous les statistiques */
+.accent-line {
+  width: 30px;
+  height: 3px;
+  background-color: #ff5722;
+}
+
+/* Boîte Avant/Après */
+.comparison-box {
+  height: 220px;
+}
+.placeholder-img {
+  min-height: 220px;
+  font-weight: 500;
+}
+
+/* Bordure orange supérieure pour la méthode */
+.border-top-orange {
+  border-top: 4px solid #ff5722 !important;
+}
+
+
+/* Définition de la pastille ronde orange fidèle à la charte */
+.bullet-orange {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #ff5722; /* Orange vif ADTB */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Pastille orange ronde */
+.bullet-orange {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Style des cartes chantiers */
+.chantier-card {
+  border-color: #e2e8f0 !important;
+  transition: all 0.2s ease;
+}
+.chantier-card:hover {
+  border-color: #0d9488 !important;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1) !important;
+}
+
+/* Séparateurs verticaux entre les blocs de statistiques */
+@media (min-width: 768px) {
+  .stat-col:not(:last-child) {
+    border-right: 1px solid #e2e8f0;
+  }
+}
+
+/* Trait orange sous les chiffres des statistiques */
+.accent-line {
+  width: 35px;
+  height: 3px;
+  background-color: #ff5722;
+  border-radius: 2px;
+}
+
+/* Badge Avant (fond blanc, texte sombre) */
+.badge-avant {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+/* Badge Après (fond blanc, texte sombre ou couleur turquoise) */
+.badge-apres {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
