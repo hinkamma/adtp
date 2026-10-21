@@ -1,0 +1,71 @@
+/* Couleurs de la charte ADTB */
+.text-orange { color: #ff5722 !important; }
+.text-teal { color: #0d9488 !important; }
+.bg-teal { background-color: #0d9488 !important; }
+
+.btn-teal {
+  background-color: #0d9488;
+  border-color: #0d9488;
+  transition: background-color 0.2s ease;
+}
+.btn-teal:hover {
+  background-color: #0b7d74;
+  border-color: #0b7d74;
+}
+
+/* Hero Section */
+.hero-projet {
+  background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  padding: 80px 0;
+}
+
+/* Pastille orange ronde */
+.bullet-orange {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Boîte de coche pour les points clés */
+.icon-check-box {
+  width: 24px;
+  height: 24px;
+  background-color: #0d9488;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Grand cadre Avant/Après */
+.comparison-box-large {
+  height: 420px;
+  background-color: #0f172a;
+}
+
+/* Ligne verticale de séparation */
+.comparison-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Badges fond blanc */
+.badge-avant, .badge-apres {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  z-index: 3;
+  font-size: 0.9rem;
+}
+
+/* Curseur central */
+.comparison-handle {
+  z-index: 4;
+  border: 2px solid #ffffff;
+}

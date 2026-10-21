@@ -239,16 +239,16 @@
               <h4 class="card-title fw-bold text-dark mb-2">{{ p.title }}</h4>
               <p class="card-text text-muted small mb-3">{{ p.description }}</p>
 
-             <!-- Métadonnées -->
-<div class="d-flex flex-wrap gap-3 text-muted small mb-4 pt-2 border-top">
-  <span><i class="bi bi-clock text-teal me-1"></i> Durée : <strong>{{ p.duration }}</strong></span>
-  <span><i class="bi bi-shield-check text-teal me-1"></i> Garantie : <strong>{{ p.warranty }}</strong></span>
-  <span><i class="bi bi-geo-alt text-teal me-1"></i> {{ p.location }}</span>
-</div>
+              <!-- Métadonnées -->
+              <div class="d-flex flex-wrap gap-3 text-muted small mb-4 pt-2 border-top">
+                <span><i class="bi bi-clock text-teal me-1"></i> Durée : <strong>{{ p.duration }}</strong></span>
+                <span><i class="bi bi-shield-check text-teal me-1"></i> Garantie : <strong>{{ p.warranty }}</strong></span>
+                <span><i class="bi bi-geo-alt text-teal me-1"></i> {{ p.location }}</span>
+              </div>
 
               <!-- Boutons d'action -->
               <div class="d-flex justify-content-between align-items-center">
-                <a routerLink="/contact" class="text-decoration-none text-teal fw-bold small">Voir le détail du projet →</a>
+                <a routerLink="/contact" class="text-decoration-none text-teal fw-bold small">Voir le détail du projet <i class="bi bi-arraow-down"></i></a>
                 <a routerLink="/devis" class="btn btn-teal-sm text-white px-3 py-1 rounded small text-decoration-none d-inline-flex align-items-center gap-1">
                   <span>Demander un devis similaire</span>
                   <i class="bi bi-arrow-right"></i>

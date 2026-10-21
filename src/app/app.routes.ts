@@ -9,6 +9,8 @@ import { ExpertiseTraitHumidite } from './pages/expertise-trait-humidite/experti
 import { ExpertiseCharpente } from './pages/expertise-charpente/expertise-charpente';
 import { ExpertiseRenovInterne } from './pages/expertise-renov-interne/expertise-renov-interne';
 import { Realisation } from './pages/realisation/realisation';
+import { ProjetDetail } from './pages/projet-detail/projet-detail';
+import { Devis } from './pages/devis/devis';
 
 
 export const routes: Routes = [
@@ -17,13 +19,15 @@ export const routes: Routes = [
 
   { path: 'expertise-toiture', component: ExpertiseToiture },
   { path: 'expertise-isolation-hydrofuge', component: ExpertiseIsolationHydrofuge },
-
   { path: 'expertiseIsolationThermique', component: ExpertiseIsolationThermique },
   { path: 'expertise-trait-humidite', component: ExpertiseTraitHumidite  },
   { path: 'expertise-charpente', component: ExpertiseCharpente   },
   { path: 'Expertise-renov-interne', component: ExpertiseRenovInterne  },
 
+    { path: 'devis', component: Devis  },
+
 
    { path: 'realisation', component: Realisation},
+    { path: 'Projet-detail', component: ProjetDetail  },
   { path: '**', redirectTo: '' }
 ];
