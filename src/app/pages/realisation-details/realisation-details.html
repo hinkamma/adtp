@@ -1,0 +1,102 @@
+<main class="realisation-detail-page">
+
+  <!-- 1. HERO SECTION DU PROJET -->
+  <section class="hero-realisation text-white py-5 position-relative">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold mb-0">
+            {{ currentRealisation.heroTitle }}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIL D'ARIANE -->
+  <div class="breadcrumb-container py-3 bg-white border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a routerLink="/" class="text-decoration-none text-muted">Accueil</a></li>
+          <li class="breadcrumb-item"><a routerLink="/realisations" class="text-decoration-none text-muted">Nos réalisations</a></li>
+          <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">{{ currentRealisation.title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 2. CONTENU PRINCIPAL (2 COLONNES) -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="row g-5 align-items-start">
+
+        <!-- COLONNE DE GAUCHE : Texte & Étapes clés -->
+        <div class="col-lg-7">
+          <!-- Numéro & Catégorie -->
+          <span class="text-uppercase small fw-bold text-teal d-block mb-2">
+            {{ currentRealisation.category }}
+          </span>
+
+          <!-- Titre Principal -->
+          <h2 class="display-6 fw-bold text-dark mb-4">
+            {{ currentRealisation.title }}
+          </h2>
+
+          <!-- Sous-titre / Accroche -->
+          <p class="fw-bold text-dark small mb-3">
+            {{ currentRealisation.subtitle }}
+          </p>
+
+          <!-- Paragraphes descriptifs -->
+          <p class="text-secondary small lh-lg mb-3">
+            {{ currentRealisation.description1 }}
+          </p>
+          <p class="text-secondary small lh-lg mb-4">
+            {{ currentRealisation.description2 }}
+          </p>
+
+          <!-- Étapes clés du chantier -->
+          <h5 class="fw-bold text-dark fs-6 text-uppercase mb-3 mt-4" style="letter-spacing: 0.5px;">
+            {{ currentRealisation.stepsTitle }}
+          </h5>
+
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-5">
+            <li class="d-flex align-items-start gap-2 small text-secondary lh-base" *ngFor="let step of currentRealisation.steps">
+              <span class="text-teal fw-bold">✓</span>
+              <span>{{ step }}</span>
+            </li>
+          </ul>
+
+          <!-- Lien vers le devis / projet similaire -->
+          <div class="pt-2">
+            <a routerLink="/contact" [queryParams]="{ projet: currentRealisation.title }" class="text-decoration-none fw-bold text-dark d-inline-flex align-items-center gap-2 project-link">
+              <span>Un projet similaire ? Parlons-en</span>
+              <span class="text-orange">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- COLONNE DE DROITE : Images du chantier -->
+        <div class="col-lg-5">
+          <div class="d-flex flex-column gap-4">
+            <!-- Image 1 -->
+            <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border">
+              <img [src]="currentRealisation.images[0]" [alt]="currentRealisation.title" class="w-100 object-fit-cover" style="height: 260px;">
+            </div>
+            <!-- Image 2 -->
+            <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border position-relative">
+              <img [src]="currentRealisation.images[1]" [alt]="currentRealisation.title" class="w-100 object-fit-cover" style="height: 260px;">
+              <!-- Légende sous la deuxième image comme sur la maquette -->
+              <div class="position-absolute bottom-0 start-0 w-100 bg-white bg-opacity-75 py-1 px-3">
+                <p class="x-small text-muted mb-0 fw-medium">ADTB Rénovation — Le savoir-faire en images</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>

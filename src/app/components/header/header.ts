@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
 
+
   // Bascule l'affichage du menu mobile directement via une classe sur l'élément
   toggleMenu(): void {
     const mobileMenu = document.getElementById('mobileMenuDropdown');

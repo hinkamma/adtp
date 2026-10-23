@@ -1,129 +1,95 @@
-<main>
-  <!-- 1. HERO BANNER DU PROJET -->
-  <section class="hero-projet text-white py-5 position-relative">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-8">
-          <span class="text-uppercase small fw-bold text-orange d-flex align-items-center gap-2 mb-2">
-            <span class="bullet-orange"></span> {{ projet.category }}
-          </span>
-          <h1 class="display-4 fw-bold mb-3">{{ projet.title }}</h1>
-          <p class="lead mb-0 text-light opacity-85">
-            {{ projet.description }}
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+<main class="projet-detail-page bg-white">
 
   <!-- FIL D'ARIANE -->
-  <div class="breadcrumb-container py-3 bg-white border-bottom">
+  <div class="breadcrumb-container py-3 border-bottom mb-4">
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0 small">
-          <li class="breadcrumb-item"><a routerLink="/" class="text-decoration-none text-muted">Accueil</a></li>
-          <li class="breadcrumb-item"><a routerLink="/realisations" class="text-decoration-none text-muted">Nos réalisations</a></li>
-          <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">{{ projet.title }}</li>
+          <li class="breadcrumb-item">
+            <a routerLink="/" class="text-decoration-none text-muted">Accueil</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a routerLink="/realisation" class="text-decoration-none text-muted">Nos réalisations</a>
+          </li>
+          <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">
+            {{ currentProjet.title }}
+          </li>
         </ol>
       </nav>
     </div>
   </div>
 
-  <!-- 2. CONTENU PRINCIPAL & CARACTÉRISTIQUES -->
-  <section class="py-5 bg-white">
-    <div class="container py-4">
-      <div class="row g-5 align-items-center">
-        
-        <!-- Colonne gauche : Description détaillée & Points clés -->
-        <div class="col-lg-7">
-          <span class="text-uppercase fw-bold text-teal small d-flex align-items-center gap-2 mb-2">
-            <span class="bullet-orange"></span> PRÉSENTATION DU CHANTIER
-          </span>
-          <h2 class="fw-bold display-6 text-dark mb-4">
-            Un accompagnement sur-mesure pour un résultat durable.
-          </h2>
-          <p class="text-muted mb-4">
-            {{ projet.fullDescription }}
-          </p>
+  <!-- SECTION PRINCIPALE DU PROJET -->
+  <div class="container py-4">
+    <div class="row g-5 align-items-start">
 
-          <!-- Liste des interventions -->
-          <h5 class="fw-bold text-dark mb-3">Détail des interventions réalisées :</h5>
-          <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
-            <li class="d-flex align-items-start gap-3" *ngFor="let point of projet.pointsCles">
-              <div class="icon-check-box mt-1 d-flex align-items-center justify-content-center">
-                <i class="bi bi-check text-white fw-bold"></i>
-              </div>
-              <span class="text-muted small fw-medium">{{ point }}</span>
-            </li>
-          </ul>
-        </div>
+      <!-- COLONNE DE GAUCHE : Texte, Description et Étapes -->
+      <div class="col-lg-7">
 
-        <!-- Colonne droite : Fiche technique / Méta-infos du projet -->
-        <div class="col-lg-5">
-          <div class="bg-light p-4 rounded-3 shadow-sm border">
-            <h4 class="fw-bold text-dark mb-4 pb-2 border-bottom">Fiche technique du projet</h4>
-            
-            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
-              <span class="text-muted small d-flex align-items-center gap-2"><i class="bi bi-clock text-teal"></i> Durée du chantier</span>
-              <span class="fw-bold text-dark">{{ projet.duration }}</span>
-            </div>
+        <!-- Numéro & Catégorie -->
+        <span class="text-uppercase small fw-bold text-teal d-block mb-2" style="letter-spacing: 0.5px;">
+          {{ currentProjet.category }}
+        </span>
 
-            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
-              <span class="text-muted small d-flex align-items-center gap-2"><i class="bi bi-shield-check text-teal"></i> Garantie</span>
-              <span class="fw-bold text-dark">{{ projet.warranty }}</span>
-            </div>
+        <!-- Titre Principal -->
+        <h1 class="display-6 fw-bold text-dark mb-4 lh-sm">
+          {{ currentProjet.title }}
+        </h1>
 
-            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
-              <span class="text-muted small d-flex align-items-center gap-2"><i class="bi bi-geo-alt text-teal"></i> Localisation</span>
-              <span class="fw-bold text-dark">{{ projet.location }}</span>
-            </div>
+        <!-- Sous-titre en vert turquoise -->
+        <p class="fw-bold text-teal mb-3 fs-6">
+          {{ currentProjet.subtitle }}
+        </p>
 
-            <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
-              <span class="text-muted small d-flex align-items-center gap-2"><i class="bi bi-aspect-ratio text-teal"></i> Surface traitée</span>
-              <span class="fw-bold text-dark">{{ projet.surface }}</span>
-            </div>
+        <!-- Description du projet -->
+        <p class="text-secondary small lh-lg mb-4">
+          {{ currentProjet.description }}
+        </p>
 
-            <!-- Bouton d'action vers le devis -->
-            <a routerLink="/devis" class="btn btn-teal text-white w-100 py-2 rounded fw-bold text-decoration-none d-flex align-items-center justify-content-center gap-2">
-              <span>Demander un devis similaire</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+        <!-- Titre des étapes clés -->
+        <h5 class="fw-bold text-dark fs-6 text-uppercase mb-3 mt-4" style="letter-spacing: 0.5px;">
+          {{ currentProjet.stepsTitle }}
+        </h5>
+
+        <!-- Liste des étapes avec coche -->
+        <ul class="list-unstyled d-flex flex-column gap-3 mb-5 ps-0">
+          <li class="d-flex align-items-start gap-2 small text-secondary lh-base" *ngFor="let step of currentProjet.steps">
+            <span class="text-teal fw-bold mt-1">✓</span>
+            <span>{{ step }}</span>
+          </li>
+        </ul>
+
+        <!-- Lien de bas de page : Projet similaire -->
+        <div class="pt-2">
+          <a routerLink="/devis" [queryParams]="{ projet: currentProjet.title }" class="text-decoration-none fw-bold text-teal d-inline-flex align-items-center gap-2 project-link">
+            <span>Un projet similaire ? Parlons-en</span>
+            <span class="text-teal">&rarr;</span>
+          </a>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- 3. SECTION VISUEL AVANT / APRÈS GRAND FORMAT -->
-  <section class="py-5 bg-light border-top">
-    <div class="container py-4 text-center">
-      <span class="text-uppercase fw-bold text-orange small d-inline-flex align-items-center gap-2 mb-2">
-        <span class="bullet-orange"></span> VISUEL COMPARATIF
-      </span>
-      <h2 class="fw-bold display-6 text-dark mb-5">Avant / Après la rénovation</h2>
+      <!-- COLONNE DE DROITE : Les 2 images empilées du chantier -->
+      <div class="col-lg-5">
+        <div class="d-flex flex-column gap-4">
 
-      <!-- Grand cadre Avant / Après -->
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="position-relative comparison-box-large overflow-hidden rounded-3 shadow">
-            <!-- Image unique combinée -->
-            <img [src]="projet.imageAvantApres" [alt]="projet.title" class="w-100 h-100 object-fit-cover">
+          <!-- Image 1 -->
+          <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border">
+            <img [src]="currentProjet.images[0]" [alt]="currentProjet.title" class="w-100 object-fit-cover" style="height: 280px;">
+          </div>
 
-            <!-- Ligne verticale de séparation au milieu -->
-            <div class="comparison-divider"></div>
-
-            <!-- Badges Avant / Après -->
-            <span class="badge badge-avant position-absolute top-0 start-0 m-3 px-3 py-2 fw-bold shadow-sm">Avant</span>
-            <span class="badge badge-apres position-absolute top-0 end-0 m-3 px-3 py-2 fw-bold shadow-sm">Après</span>
-
-            <!-- Curseur central -->
-            <div class="position-absolute top-50 start-50 translate-middle rounded-circle bg-white shadow d-flex align-items-center justify-content-center comparison-handle" style="width: 40px; height: 40px;">
-              <i class="bi bi-code text-dark fw-bold fs-5"></i>
+          <!-- Image 2 avec légende ADTB sous l'image -->
+          <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border">
+            <img [src]="currentProjet.images[1]" [alt]="currentProjet.title" class="w-100 object-fit-cover" style="height: 280px;">
+            <div class="py-2 px-3 bg-white border-top">
+              <p class="x-small text-muted mb-0 fw-medium">ADTB Rénovation — Le savoir-faire en images</p>
             </div>
           </div>
+
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+
 </main>

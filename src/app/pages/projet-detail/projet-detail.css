@@ -69,3 +69,13 @@
   z-index: 4;
   border: 2px solid #ffffff;
 }
+
+.chantier-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.chantier-card:hover {
+  border-color: #0d9488 !important; /* Couleur vert canard/turquoise ADTB au survol */
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08) !important;
+}

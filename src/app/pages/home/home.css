@@ -33,7 +33,7 @@
 /* --- SECTION 1 : HERO BANNER --- */
 .hero-section {
   background-color: #092f2c;
-  background-image: url('/assets/imgs/Section_sol.png');
+  background-image: url('/assets/imgs/Nettoyage & hydrofuge.png');
   background-size: cover;
   background-position: center;
 }
@@ -312,7 +312,7 @@
 /* --- SECTION 1 : HERO BANNER (Optimisé Mobile & Senior Animation) --- */
 .hero-section {
   background-color: #092f2c;
-  background-image: url('/assets/imgs/2acd88543217d511f3cd0023043ce2b6eeb7c915.jpg');
+  background-image: url('/assets/imgs/Nettoyage & hydrofuge.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -321,7 +321,7 @@
 .hero-bg-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(9, 47, 44, 0.95) 0%, rgba(13, 148, 136, 0.82) 100%);
+  background: linear-gradient(135deg, rgba(10, 43, 40, 0.95) 0%, rgba(13, 148, 137, 0.37) 100%);
   z-index: 0;
 }
 
@@ -438,4 +438,56 @@
   .trust-dark-section h4 {
     font-size: 0.95rem !important;
   }
+}
+
+
+/* Style de base des liens de navigation */
+.nav-link-custom {
+  color: #1e293b;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-link-custom:hover {
+  color: #0d9488;
+}
+
+/* Style du marqueur lorsque la page est active (en desktop) */
+.nav-link-custom.active-link {
+  color: #ff5722 !important; /* Couleur orange de la charte ADTB */
+  font-weight: bold;
+}
+
+/* Optionnel : Ajout d'un petit trait indicateur en bas sous le texte en mode desktop */
+@media (min-width: 992px) {
+  .d-lg-flex .nav-link-custom.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff5722;
+    border-radius: 2px;
+  }
+}
+
+/* Style spécifique en mode mobile pour bien marquer la ligne active */
+.mobile-menu .nav-link-custom.active-link {
+  background-color: rgba(13, 148, 136, 0.08);
+  border-left: 4px solid #ff5722;
+  padding-left: 10px !important;
+}
+
+/* Par défaut, le menu mobile est masqué */
+.mobile-menu {
+  display: none;
+}
+
+/* Lorsqu'on clique sur le burger, cette classe s'ajoute et l'affiche en colonne */
+.mobile-menu.show-menu {
+  display: flex !important;
+  flex-direction: column;
 }

@@ -1,0 +1,15 @@
+.text-teal {
+  color: #0d9488 !important;
+}
+
+.x-small {
+  font-size: 0.75rem;
+}
+
+.hover-teal:hover {
+  color: #0d9488 !important;
+}
+
+/* Style de la bannière d'en-tête */
+.politique-hero {
+  background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.82)), url('/assets/imgs/58844a17038808e523cff276a8f54d9cf4eada09.jpg') center/cover no-repeat;

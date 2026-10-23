@@ -1,0 +1,20 @@
+.text-orange { color: #ff5722 !important; }
+.text-teal { color: #0d9488 !important; }
+
+/* Hero section spécifique */
+.hero-realisation {
+  background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f86f3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  padding: 60px 0;
+}
+
+/* Lien interactif en bas */
+.project-link {
+  transition: color 0.2s ease;
+}
+.project-link:hover {
+  color: #0d9488 !important;
+}
+
+.x-small {
+  font-size: 0.75rem;
+}

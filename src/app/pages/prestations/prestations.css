@@ -1,0 +1,34 @@
+.text-orange { color: #ff5722 !important; }
+.text-teal { color: #0d9488 !important; }
+
+.bg-teal { background-color: #0d9488 !important; color: #ffffff !important; }
+.bg-orange { background-color: #ff5722 !important; color: #ffffff !important; }
+
+.prestations-hero {
+  background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+}
+
+.transition-card {
+  transition: all 0.25s ease-in-out;
+}
+
+.transition-card:hover {
+  transform: translateY(-4px);
+  border-color: #0d9488 !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-arrow-circle {
+  width: 32px;
+  height: 32px;
+  background-color: #0d9488;
+  transition: background-color 0.2s ease;
+}
+
+.transition-card:hover .btn-arrow-circle {
+  background-color: #ff5722;
+}
+
+.x-small {
+  font-size: 0.8rem;
+}

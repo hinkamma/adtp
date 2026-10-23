@@ -1,4 +1,3 @@
-;
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { Contact } from './pages/contact/contact';
@@ -11,6 +10,10 @@ import { ExpertiseRenovInterne } from './pages/expertise-renov-interne/expertise
 import { Realisation } from './pages/realisation/realisation';
 import { ProjetDetail } from './pages/projet-detail/projet-detail';
 import { Devis } from './pages/devis/devis';
+import { Prestations } from './pages/prestations/prestations';
+import { PrestationDetail } from './pages/prestation-detail/prestation-detail';
+import { MentionLegale } from './pages/mention-legale/mention-legale';
+import { Political } from './pages/political/political';
 
 
 export const routes: Routes = [
@@ -24,10 +27,29 @@ export const routes: Routes = [
   { path: 'expertise-charpente', component: ExpertiseCharpente   },
   { path: 'Expertise-renov-interne', component: ExpertiseRenovInterne  },
 
-    { path: 'devis', component: Devis  },
+  { path: 'devis', component: Devis  },
 
 
-   { path: 'realisation', component: Realisation},
-    { path: 'Projet-detail', component: ProjetDetail  },
+
+
+
+
+  // realisation et detail des projets
+  { path: 'realisation', component: Realisation},
+  { path: 'realisation/:id', component: ProjetDetail },
+
+  { path: 'Projet-detail/:id', component: ProjetDetail },
+  { path: 'Projet-detail', component: ProjetDetail },
+
+
+    //prestation et detail
+
+    { path: 'Prestation', component: Prestations },
+    { path: 'prestation-detail/:id', component: PrestationDetail },
+
+
+    { path: 'mentions-legales', component: MentionLegale  },
+    { path: 'politique-confidentialite', component: Political },
+
   { path: '**', redirectTo: '' }
 ];

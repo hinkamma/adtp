@@ -8,7 +8,7 @@
           <p class="lead mb-4 text-light">
             Découvrez nos réalisations en rénovation de l'habitat : travaux de toiture, isolation thermique, traitement de l'humidité, ventilation et rénovation intérieure.
           </p>
-          <a href="#contenu-realisations" class="btn btn-outline-light rounded-pill px-4 py-2 text-decoration-none">
+          <a href="#contenu-realisationsss" class="btn btn-outline-light rounded-pill px-4 py-2 text-decoration-none">
             Découvrir nos réalisations <i class="bi bi-arrow-down"></i>
           </a>
         </div>
@@ -29,7 +29,7 @@
   </div>
 
   <!-- 2. SECTION PRÉSENTATION & EXPÉRIENCE -->
-  <section class="py-5 bg-white" id="contenu-realisations">
+  <section class="py-5 bg-white" id="contenu-realisationsss">
     <div class="container py-4">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
@@ -47,14 +47,14 @@
           <p class="text-muted mb-4">
             De la toiture aux fondations, nos équipes mettent leur expertise technique au service de votre habitat, en privilégiant des matériaux durables, des interventions soignées et des finitions de qualité. Notre certification RGE et nos garanties décennales témoignent de notre engagement en faveur de travaux fiables et durables, à chaque étape de votre projet de rénovation.
           </p>
-          
+
           <div class="d-flex gap-4 small fw-bold text-dark">
             <span class="d-flex align-items-center gap-2">
-              <img src="assets/icons/SVG (14).png" alt="Certifié RGE" width="20" height="20" class="custom-icon"> 
+              <img src="/assets/icons/Background+Shadow.png" alt="Certifié RGE" width="20" height="20" class="custom-icon">
               Certifié RGE
             </span>
             <span class="d-flex align-items-center gap-2">
-              <img src="assets/icons/SVG (12).png" alt="Garantie décennale" width="20" height="20" class="custom-icon"> 
+              <img src="/assets/icons/SVG (12).png" alt="Garantie décennale" width="20" height="20" class="custom-icon">
               Garantie décennale
             </span>
           </div>
@@ -81,7 +81,7 @@
 
       <!-- 4 Colonnes avec séparateurs verticaux -->
       <div class="row g-0 align-items-stretch">
-        
+
         <!-- Avantage 1 -->
         <div class="col-lg-3 col-md-6 px-4 py-3 advantage-col">
           <div class="mb-3 text-white fs-3">
@@ -139,22 +139,24 @@
         </div>
       </div>
 
-      <!-- Grille 3x4 des chantiers (style épuré avec bordure et flèche) -->
+      <!-- Grille 3x4 des chantiers (style épuré avec bordure et flèche cliquable) -->
       <div class="row g-3 mb-5">
         <div class="col-md-3 col-sm-6" *ngFor="let c of chantiers">
-          <div class="chantier-card bg-white p-3 rounded-2 shadow-sm d-flex justify-content-between align-items-center border">
-            <div>
-              <span class="text-teal fw-bold me-2">{{ c.id < 10 ? '0' + c.id : c.id }}</span>
-              <span class="text-dark fw-medium small">{{ c.title }}</span>
+          <a [routerLink]="['/Projet-detail', c.id]" class="text-decoration-none">
+            <div class="chantier-card bg-white p-3 rounded-2 shadow-sm d-flex justify-content-between align-items-center border h-100 transition-card">
+              <div>
+                <span class="text-teal fw-bold me-2">{{ c.id < 10 ? '0' + c.id : c.id }}</span>
+                <span class="text-dark fw-medium small">{{ c.title }}</span>
+              </div>
+              <span class="text-teal small fw-bold"><i class="bi bi-arrow-right"></i></span>
             </div>
-            <span class="text-teal small fw-bold"><i class="bi bi-arrow-down"></i></span>
-          </div>
+          </a>
         </div>
       </div>
 
       <!-- Statistiques clés avec séparateurs verticaux et traits orange -->
       <div class="row text-center pt-4 g-0 align-items-stretch stats-container border-top">
-        
+
         <!-- Stat 1 -->
         <div class="col-md-3 col-6 p-3 stat-col">
           <h3 class="fw-bold display-5 text-teal mb-1">15+</h3>
