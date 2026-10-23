@@ -1,16 +1,5 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
-import { routes } from './app/app.routes';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { App } from './app/app';
+import { appConfig } from './app/app.config';
 
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(
-      routes,
-      withInMemoryScrolling({
-        scrollPositionRestoration: 'enabled', // <--- Force le retour en haut proprement
-        anchorScrolling: 'enabled'
-      })
-    )
-  ]
-};
+bootstrapApplication(App, appConfig).catch(error => console.error(error));

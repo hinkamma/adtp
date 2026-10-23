@@ -10,6 +10,7 @@ import { NgForOf } from '@angular/common';
 })
 export class ProjetDetail {
 
+
   // Base de données complète des 12 chantiers ADTB
   projetsData: { [key: string]: any } = {
     '1': {
@@ -183,16 +184,15 @@ export class ProjetDetail {
   };
 
 
-  currentProjet: any;
+  currentProjet: any = this.projetsData['1'];
 
   constructor(private route: ActivatedRoute) {}
 
+
   ngOnInit(): void {
-    // Récupère l'ID depuis l'URL (ex: /realisation/1 à /realisation/12)
     this.route.paramMap.subscribe(params => {
       const id = params.get('id') || '1';
       this.currentProjet = this.projetsData[id] || this.projetsData['1'];
-
     });
   }
 }

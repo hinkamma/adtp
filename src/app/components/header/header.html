@@ -1,42 +1,45 @@
+
+
+
 <header class="header-container shadow-sm sticky-top bg-white">
   <div class="container-fluid px-3 px-md-4 py-2">
     <div class="d-flex align-items-center justify-content-between">
 
       <!-- Logo ADTB -->
       <a routerLink="/" (click)="closeMenu()" class="navbar-brand d-flex align-items-center m-0">
-        <img src="assets/icons/ADTB_icon.png" alt="Logo ADTB" class="logo-img">
+        <img src="assets/icons/ADTB_icon.png" alt="Logo ADTB" class="logo-img" height="35">
       </a>
 
-      <!-- Navigation Desktop -->
+      <!-- Navigation Desktop (Visible uniquement sur grands écrans) -->
       <nav class="d-none d-lg-flex align-items-center gap-4">
-        <a routerLink="/Prestation" routerLinkActive="active" class="nav-link-custom">Nos prestations</a>
-        <a routerLink="/realisation" routerLinkActive="active" class="nav-link-custom">Nos réalisations</a>
-        <a routerLink="/Contact" routerLinkActive="active" class="nav-link-custom">Contact</a>
+        <a routerLink="/Prestation" routerLinkActive="active" class="nav-link-custom text-decoration-none text-dark fw-semibold">Nos prestations</a>
+        <a routerLink="/realisation" routerLinkActive="active" class="nav-link-custom text-decoration-none text-dark fw-semibold">Nos réalisations</a>
+        <a routerLink="/Contact" routerLinkActive="active" class="nav-link-custom text-decoration-none text-dark fw-semibold">Contact</a>
       </nav>
 
-      <!-- Zone droite : Bouton Devis + Burger -->
+      <!-- Zone droite : Bouton Devis + Menu Burger -->
       <div class="d-flex align-items-center gap-2 gap-md-3">
 
         <!-- Bouton Devis -->
-        <a routerLink="/devis" (click)="closeMenu()" class="btn-devis-wrapper d-flex align-items-center text-decoration-none">
-          <div class="icon-box d-flex align-items-center justify-content-center me-1 me-sm-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill text-white" viewBox="0 0 16 16">
+        <a routerLink="/devis" (click)="closeMenu()" class="btn-devis-wrapper d-flex align-items-center text-decoration-none p-1 rounded-pill" style="background-color: #0d9488;">
+          <div class="icon-box d-flex align-items-center justify-content-center bg-white rounded-circle p-2" style="width: 32px; height: 32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0d9488" class="bi bi-telephone-fill" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
             </svg>
           </div>
-          <div class="text-box d-flex align-items-center justify-content-center px-3 text-white fw-bold">
+          <div class="text-box d-flex align-items-center justify-content-center px-3 text-white fw-bold small">
             <span class="d-none d-sm-inline">Devis gratuit</span>
             <span class="d-inline d-sm-none">Devis</span>
             <span class="ms-2">&rarr;</span>
           </div>
         </a>
 
-        <!-- Bouton Menu Burger -->
-        <button class="navbar-toggler d-lg-none border-0 bg-transparent p-2" type="button" (click)="toggleMenu()" aria-label="Toggle navigation">
-          <span class="burger-icon">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
+        <!-- Bouton Menu Burger (Mobile) -->
+        <button class="navbar-toggler d-lg-none border-0 bg-transparent p-2" type="button" (click)="toggleMenu()" aria-label="Toggle navigation" aria-controls="mobileMenuDropdown" [attr.aria-expanded]="isMenuOpen">
+          <span class="burger-icon d-flex flex-column gap-1">
+            <span class="line bg-dark d-block rounded" style="width: 24px; height: 2px;"></span>
+            <span class="line bg-dark d-block rounded" style="width: 24px; height: 2px;"></span>
+            <span class="line bg-dark d-block rounded" style="width: 24px; height: 2px;"></span>
           </span>
         </button>
 
@@ -44,13 +47,14 @@
 
     </div>
 
-    <!-- Menu Déroulant Mobile/Tablette -->
-    <div id="mobileMenuDropdown" class="mobile-menu d-lg-none">
+    <!-- Menu Déroulant Mobile/Tablette (Ciblé par ID) -->
+    <div id="mobileMenuDropdown" class="mobile-menu d-lg-none" [class.show-menu]="isMenuOpen">
       <nav class="d-flex flex-column gap-2 py-3 border-top mt-2">
-        <a routerLink="/Prestation" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom py-2 px-2 rounded">Nos prestations</a>
-        <a routerLink="/realisation" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom py-2 px-2 rounded">Nos réalisations</a>
-        <a routerLink="/Contact" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom py-2 px-2 rounded">Contact</a>
+        <a routerLink="/Prestation" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom text-decoration-none text-dark fw-semibold py-2 px-2 rounded">Nos prestations</a>
+        <a routerLink="/realisation" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom text-decoration-none text-dark fw-semibold py-2 px-2 rounded">Nos réalisations</a>
+        <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="active" class="nav-link-custom text-decoration-none text-dark fw-semibold py-2 px-2 rounded">Contact</a>
       </nav>
     </div>
+
   </div>
 </header>
