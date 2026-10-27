@@ -527,3 +527,237 @@
   background-color: #0d9488;
   color: #ffffff;
 }
+
+
+
+
+
+
+
+/* --- COMPOSANT SERVICE SLIDER --- */
+.service-component-section {
+  position: relative;
+}
+
+.service-viewport {
+  width: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+
+.service-track {
+  display: flex;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.service-track::-webkit-scrollbar {
+  display: none;
+}
+
+.service-slide-item {
+  width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* Design de la grande carte-bannière */
+.service-card-banner {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Cadre photo stylisé */
+.service-img-frame {
+  background-color: #f8fafc;
+  border-radius: 12px;
+}
+
+/* Étiquette orange */
+.service-tag-orange {
+  color: #ff5722;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Bouton turquoise ADTB */
+.btn-teal-custom {
+  background-color: #0d9488;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.25);
+}
+
+.btn-teal-custom:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.35);
+}
+
+/* Boutons de navigation (Flèches aux extrémités, parfaitement centrées) */
+.service-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  color: #0d9488;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-prev {
+  left: 0px;
+}
+
+.btn-next {
+  right: 0px;
+}
+
+@media (min-width: 992px) {
+  .btn-prev {
+    left: -10px;
+  }
+  .btn-next {
+    right: -10px;
+  }
+}
+
+.service-nav-btn:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3) !important;
+}
+
+/* Responsive mobile ajusté */
+@media (max-width: 768px) {
+  .service-card-banner {
+    padding: 1.25rem !important;
+    margin: 0 !important;
+  }
+  .service-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+.service-component-section {
+  position: relative;
+}
+
+/* Le viewport cache les barres de défilement tout en contenant les slides */
+.service-viewport {
+  width: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+
+/* La piste autorise explicitement le scroll en JS tout en masquant la barre visuelle */
+.service-track {
+  display: flex;
+  overflow-x: auto !important;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.service-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Force chaque slide à occuper exactement 100% de la largeur du conteneur */
+.service-slide-item {
+  width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+.service-card-banner {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.service-img-frame {
+  background-color: #f8fafc;
+  border-radius: 12px;
+}
+
+.service-tag-orange {
+  color: #ff5722;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn-teal-custom {
+  background-color: #0d9488;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.25);
+}
+
+.btn-teal-custom:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.35);
+}
+
+/* Boutons de navigation positionnés aux extrémités */
+.service-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  color: #0d9488;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-prev {
+  left: 0px;
+}
+
+.btn-next {
+  right: 0px;
+}
+
+@media (min-width: 992px) {
+  .btn-prev {
+    left: -15px;
+  }
+  .btn-next {
+    right: -15px;
+  }
+}
+
+.service-nav-btn:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  .service-card-banner {
+    padding: 1.25rem !important;
+    margin: 0 !important;
+  }
+  .service-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+}

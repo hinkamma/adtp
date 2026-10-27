@@ -5,10 +5,7 @@ export const serverRoutes: ServerRoute[] = [
     path: 'realisation/:id',
     renderMode: RenderMode.Server
   },
-  {
-    path: 'Projet-detail/:id',
-    renderMode: RenderMode.Server
-  },
+
   {
     path: 'prestation-detail/:id',
     renderMode: RenderMode.Server

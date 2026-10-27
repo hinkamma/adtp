@@ -1,0 +1,177 @@
+<main class="prestation-detail-page bg-white">
+ 
+  <!-- 1. HERO BANNER -->
+  <section class="prestation-hero text-white position-relative" [style.background-image]="'url(' + currentPrestation.heroImage + ')'">
+    <div class="prestation-hero-overlay"></div>
+    <div class="container position-relative z-index-1 py-5">
+      <div class="row align-items-center min-vh-50 py-lg-4">
+        <div class="col-lg-8 py-5">
+          <h1 class="display-4 fw-bold mb-0 lh-tight text-white">
+            {{ currentPrestation.heroTitle }}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FIL D'ARIANE ET SOUS-NAVIGATION ANCRÉE -->
+  <div class="bg-white py-3 border-bottom shadow-sm sticky-top" style="top: 0; z-index: 1020;">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      
+      <!-- Fil d'Ariane -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item">
+            <a routerLink="/" class="text-decoration-none text-muted">Accueil</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a routerLink="/prestations" class="text-decoration-none text-muted">Nos prestations</a>
+          </li>
+          <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">
+            {{ currentPrestation.heroTitle }}
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Sous-menu ancré (CORRIGÉ avec les bons IDs) -->
+      <div class="d-flex align-items-center gap-4 small fw-semibold text-muted">
+        <a href="#presentation" class="text-decoration-none text-muted hover-teal">Présentation</a>
+        <a href="#avantages" class="text-decoration-none text-muted hover-teal">Avantages</a>
+        <a href="#techniques" class="text-decoration-none text-muted hover-teal" *ngIf="currentPrestation.techniques">Solutions</a>
+        <a href="#projet" class="text-decoration-none text-teal fw-bold" style="color: #0d9488;">Votre projet &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. SECTION PRINCIPALE (ID ajouté) -->
+  <div class="container py-5" id="presentation">
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6">
+        <span class="section-tag-orange d-block text-uppercase fw-bold small mb-2" style="color: #ff5722; letter-spacing: 1px;">
+          {{ currentPrestation.category }}
+        </span>
+        <h2 class="display-6 fw-bold text-dark lh-sm mb-4">
+          {{ currentPrestation.title }}
+        </h2>
+        <p class="text-muted small lh-lg mb-3">
+          {{ currentPrestation.description1 }}
+        </p>
+        <p class="text-muted small lh-lg mb-4">
+          {{ currentPrestation.description2 }}
+        </p>
+        <div>
+          <a routerLink="/devis" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-4 py-3 rounded-pill small fw-bold">
+            <span>Étudions ensemble votre projet</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="main-img-wrapper rounded-4 overflow-hidden shadow-sm border" style="height: 380px;">
+          <img [src]="currentPrestation.mainImage" [alt]="currentPrestation.title" class="w-100 h-100 object-fit-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. SECTION AVANTAGES (ID ajouté) -->
+  <section class="advantages-dark-section position-relative text-white py-5 my-4" id="avantages">
+    <div class="advantages-bg-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+
+    <div class="container position-relative z-index-1 py-4">
+      <div class="mb-5 text-center text-lg-start">
+        <span class="section-tag-teal d-block text-uppercase fw-bold small mb-2" style="letter-spacing: 1px; color: #00dfc4;">
+          {{ currentPrestation.advantagesTitle }}
+        </span>
+        <h2 class="display-6 fw-bold lh-sm mb-0 text-white">
+          {{ currentPrestation.advantagesSubtitle }}
+        </h2>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-3" *ngFor="let adv of currentPrestation.advantages">
+          <div class="advantage-card h-100 d-flex flex-column p-4 position-relative">
+            <div class="card-line-top mb-4"></div>
+            <div class="icon-box mb-3 text-teal" style="color: #00dfc4;">
+              <i class="bi bi-check-circle fs-4"></i>
+            </div>
+            <h3 class="h6 fw-bold text-white mb-2">{{ adv.title }}</h3>
+            <p class="text-white-50 small mb-0 lh-base">{{ adv.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SECTION TECHNIQUES / SOLUTIONS (ID ajouté) -->
+  <section class="py-5 bg-white" id="techniques" *ngIf="currentPrestation.techniques && currentPrestation.techniques.length > 0">
+    <div class="container py-4">
+      <div class="mb-5">
+        <span class="section-tag-orange d-block text-uppercase fw-bold small mb-2" style="letter-spacing: 1px; color: #ff5722;">
+          {{ currentPrestation.techniquesHeader }}
+        </span>
+        <h2 class="display-6 fw-bold text-dark lh-sm mb-0">
+          {{ currentPrestation.techniquesTitle }}
+        </h2>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-lg-6" *ngFor="let tech of currentPrestation.techniques">
+          <div class="technique-card h-100 d-flex flex-column">
+            <div class="mb-3">
+              <span class="text-teal fw-bold small" style="color: #0d9488;">{{ tech.num }} / {{ tech.subtitle }}</span>
+              <h3 class="h4 fw-bold text-dark mt-1">{{ tech.title }}</h3>
+            </div>
+            <p class="text-muted small lh-lg mb-3">{{ tech.desc1 }}</p>
+            <p class="text-muted small lh-lg mb-4">{{ tech.desc2 }}</p>
+            <div class="img-wrapper rounded-4 overflow-hidden mb-3 shadow-sm" style="height: 260px;">
+              <img [src]="tech.image" [alt]="tech.title" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-auto">
+              <div class="d-flex align-items-center gap-2 text-muted x-small" *ngFor="let tag of tech.tags">
+                <i class="bi bi-check text-teal fw-bold fs-5" style="color: #0d9488;"></i>
+                <span>{{ tag }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SECTION AMÉNAGEMENT & GALERIE -->
+  <section class="py-5 bg-light" *ngIf="currentPrestation.amenagementImages && currentPrestation.amenagementImages.length > 0">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2 class="h3 fw-bold text-dark mb-3">{{ currentPrestation.amenagementTitle }}</h2>
+          <p class="text-muted small lh-lg mb-3">{{ currentPrestation.amenagementText1 }}</p>
+          <p class="text-muted small lh-lg mb-0">{{ currentPrestation.amenagementText2 }}</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6" *ngFor="let img of currentPrestation.amenagementImages">
+              <div class="rounded-4 overflow-hidden shadow-sm border" style="height: 200px;">
+                <img [src]="img" alt="Aménagement" class="w-100 h-100 object-fit-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. BANDEAU DE FIN DE PAGE (ID "projet" ajouté pour l'ancrage de "Votre projet") -->
+  <section class="py-5 text-white text-center" id="projet" style="background-color: #0d9488;">
+    <div class="container py-4">
+      <h2 class="h3 fw-bold mb-3">Prêt à concrétiser votre projet de rénovation ?</h2>
+      <p class="text-white-50 small mb-4">Bénéficiez d’un diagnostic sur-mesure et d’un devis entièrement gratuit.</p>
+      <a routerLink="/devis" class="btn btn-light text-teal fw-bold px-4 py-3 rounded-pill text-decoration-none shadow-sm" style="color: #0d9488;">
+        Demander mon devis gratuit &rarr;
+      </a>
+    </div>
+  </section>
+
+</main>
