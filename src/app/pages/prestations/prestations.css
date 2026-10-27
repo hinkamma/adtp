@@ -32,3 +32,25 @@
 .x-small {
   font-size: 0.8rem;
 }
+
+
+/* Style du bouton pilule "Découvrir" */
+.btn-pill-custom {
+  background-color: rgba(13, 148, 136, 0.08); /* Fond turquoise très léger */
+  color: #0d9488; /* Texte couleur turquoise ADTB */
+  border: 1px solid rgba(13, 148, 136, 0.2); /* Bordure subtile */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-pill-custom:hover {
+  background-color: #0d9488; /* Fond turquoise plein au survol */
+  color: #ffffff; /* Texte en blanc */
+  border-color: #0d9488;
+  transform: translateY(-2px); /* Léger effet de lévitation au survol */
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);
+}
+
+.btn-pill-custom:hover i {
+  transform: translateX(3px); /* Petit mouvement de la flèche vers la droite au survol */
+  transition: transform 0.2s ease;
+}
