@@ -14,6 +14,7 @@ import { Prestations } from './pages/prestations/prestations';
 import { PrestationDetail } from './pages/prestation-detail/prestation-detail';
 import { MentionLegale } from './pages/mention-legale/mention-legale';
 import { Political } from './pages/political/political';
+import { Services } from './pages/services/services';
 
 
 export const routes: Routes = [
@@ -41,6 +42,7 @@ export const routes: Routes = [
   { path: 'Projet-detail/:id', component: ProjetDetail },
   { path: 'Projet-detail', component: ProjetDetail },
 
+  { path: 'services', component: Services },
 
     //prestation et detail
 

@@ -93,203 +93,153 @@
       </div>
 
 
-      <!-- Section Expertises / Slider Professionnel -->
-      <div class="pt-5 position-relative">
+      <!-- Section Expertises / Slider Infini -->
+       <!-- Section Expertises (Grille 3 colonnes) -->
+<div class="pt-5">
+  <div class="d-flex justify-content-between align-items-end mb-4">
+    <div>
+      <span class="section-tag-orange">NOS EXPERTISES</span>
+      <h2 class="h2 fw-bold text-dark mt-1">Nos expertises en rénovation de l'habitat</h2>
+      <p class="text-muted small mb-0">Des solutions durables pour la rénovation énergétique et l'amélioration de votre habitat</p>
+    </div>
+    <a routerLink="/Prestation" class="link-teal fw-bold text-decoration-none small d-none d-md-inline">Voir toutes nos expertises &rarr;</a>
+  </div>
 
-
-        <!-- Section Expertises / Slider Infini -->
-        <div class="pt-5">
-
-          <div class="d-flex justify-content-between align-items-end mb-4">
-            <div>
-              <span class="section-tag-orange">NOS EXPERTISES</span>
-              <h2 class="h2 fw-bold text-dark mt-1">Nos expertises en rénovation de l'habitat</h2>
-              <p class="text-muted small mb-0">Des solutions durables pour la rénovation énergétique et l'amélioration de votre habitat</p>
-            </div>
-            <a routerLink="/Prestation" class="link-teal fw-bold text-decoration-none small d-none d-md-inline">Voir toutes nos expertises &rarr;</a>
+  <div class="row g-4">
+    <!-- Carte 1 : Toiture -->
+    <div class="col-md-4">
+      <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border d-flex flex-column">
+        <div class="img-wrapper overflow-hidden position-relative" style="height: 180px;">
+          <img src="/assets/imgs/58844a17038808e523cff276a8f54d9cf4eada09.jpg" alt="Toiture" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+          <div>
+            <h3 class="h5 fw-bold mb-1 text-dark">Toiture</h3>
+            <p class="text-muted small mb-3">Rénovation, réparation et recherche de fuites.</p>
           </div>
-
-          <!-- Conteneur global -->
-          <div class="slider-container-main position-relative">
-
-            <!-- Bouton Précédent (Fixé proprement sur le côté sans risque de sortie d'écran) -->
-            <button class="carousel-nav-btn btn-prev d-flex align-items-center justify-content-center shadow-sm"
-                    (click)="scrollSlider('left')"
-                    aria-label="Précédent">
-              <i class="bi bi-chevron-left fs-6"></i>
-            </button>
-
-            <!-- Zone visible du slider -->
-            <div class="expertises-viewport mx-0 mx-md-4">
-              <div #sliderTrack class="expertises-track d-flex gap-3">
-
-                <!-- Carte 1 -->
-                <div class="expertise-slide-item flex-shrink-0 w-100">
-                  <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border">
-                    <div class="img-wrapper overflow-hidden position-relative" style="height: 240px;">
-                      <img src="/assets/imgs/58844a17038808e523cff276a8f54d9cf4eada09.jpg" alt="Toiture" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="p-4 d-flex justify-content-between align-items-center">
-                      <div>
-                        <h3 class="h5 fw-bold mb-1 text-dark">Toiture</h3>
-                        <p class="text-muted small mb-0">Rénovation, réparation et recherche de fuites.</p>
-                      </div>
-
-                      <!-- <a routerLink="/expertise-toiture" class="btn-arrow-circle flex-shrink-0" aria-label="Voir la prestation">
-                        <i class="bi bi-arrow-right"></i>
-                      </a> -->
-
-                       <a routerLink="/expertise-toiture" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation d'isolation thermique">
-                        <span>Découvrir</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Carte 2 -->
-                <div class="expertise-slide-item flex-shrink-0 w-100">
-                  <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border">
-                    <div class="img-wrapper overflow-hidden position-relative" style="height: 240px;">
-                      <img src="/assets/imgs/1974e4172d18bb19c71e521508ddf7f807d571da.png" alt="Nettoyage et hydrofuge" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="p-4 d-flex justify-content-between align-items-center">
-                      <div>
-                        <h3 class="h5 fw-bold mb-1 text-dark">Nettoyage et traitement hydrofuge</h3>
-                        <p class="text-muted small mb-0">Démoussage, nettoyage et protection durable de la toiture.</p>
-                      </div>
-
-                      <!-- <a routerLink="/expertise-isolation-hydrofuge" class="btn-arrow-circle flex-shrink-0" aria-label="Voir la prestation">
-                        <i class="bi bi-arrow-right"></i>
-                      </a> -->
-
-                      <a routerLink="/expertise-isolation-hydrofuge" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation d'isolation thermique">
-                        <span>Découvrir</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-
-
-
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Carte 3 -->
-                <div class="expertise-slide-item flex-shrink-0 w-100">
-                  <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border">
-                    <div class="img-wrapper overflow-hidden position-relative" style="height: 240px;">
-                      <img src="/assets/imgs/Isolation.png" alt="Isolation thermique" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="p-4 d-flex justify-content-between align-items-center">
-                      <div>
-                        <h3 class="h5 fw-bold mb-1 text-dark">Isolation thermique</h3>
-                        <p class="text-muted small mb-0">Isolation des combles, des rampants et des murs par l'extérieur.</p>
-                      </div>
-
-                      <!-- <a routerLink="/expertiseIsolationThermique" class="btn-arrow-circle flex-shrink-0" aria-label="Voir la prestation">
-                        <i class="bi bi-arrow-right"></i>
-                      </a> -->
-                       <a routerLink="/expertiseIsolationThermique" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation d'isolation thermique">
-                        <span>Découvrir</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Carte 4 -->
-                <div class="expertise-slide-item flex-shrink-0 w-100">
-                  <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border">
-                    <div class="img-wrapper overflow-hidden position-relative" style="height: 240px;">
-                      <img src="/assets/imgs/Traitement humidité.png" alt="Traitement de l'humidité" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="p-4 d-flex justify-content-between align-items-center">
-                      <div>
-                        <h3 class="h5 fw-bold mb-1 text-dark">Traitement de l'humidité</h3>
-                        <p class="text-muted small mb-0">Traitement des remontées capillaires, cuvelage et assainissement.</p>
-                      </div>
-
-                      <!-- <a routerLink="/expertise-trait-humidite" class="btn-arrow-circle flex-shrink-0" aria-label="Voir la prestation">
-                        <i class="bi bi-arrow-right"></i>
-                      </a> -->
-                      <a routerLink="/expertise-trait-humidite" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation d'isolation thermique">
-                        <span>Découvrir</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Carte 5 -->
-                <div class="expertise-slide-item flex-shrink-0 w-100">
-                  <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border">
-                    <div class="img-wrapper overflow-hidden position-relative" style="height: 240px;">
-                      <img src="/assets/imgs/Figure (3).png" alt="Charpente et bois" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="p-4 d-flex justify-content-between align-items-center">
-                      <div>
-                        <h3 class="h5 fw-bold mb-1 text-dark">Charpente et bois</h3>
-                        <p class="text-muted small mb-0">Traitement contre les insectes xylophages et rénovation.</p>
-                      </div>
-
-                      <!-- <a routerLink="/expertise-charpente" class="btn-arrow-circle flex-shrink-0" aria-label="Voir la prestation">
-                        <i class="bi bi-arrow-right"></i>
-                      </a> -->
-
-                      <a routerLink="/expertise-charpente" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation d'isolation thermique">
-                        <span>Découvrir</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Carte 6 -->
-                <div class="expertise-slide-item flex-shrink-0 w-100">
-                  <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border">
-                    <div class="img-wrapper overflow-hidden position-relative" style="height: 240px;">
-                      <img src="/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg" alt="Rénovation intérieure" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="p-4 d-flex justify-content-between align-items-center">
-                      <div>
-                        <h3 class="h5 fw-bold mb-1 text-dark">Rénovation intérieure</h3>
-                        <p class="text-muted small mb-0">Aménagement intérieur, menuiseries et confort de l'habitat.</p>
-                      </div>
-
-                      <!-- <a routerLink="/Expertise-renov-interne" class="btn-arrow-circle flex-shrink-0" aria-label="Voir la prestation">
-                        <i class="bi bi-arrow-right"></i>
-                      </a> -->
-
-                      <a routerLink="/Expertise-renov-interne" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation d'isolation thermique">
-                        <span>Découvrir</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Bouton Suivant -->
-            <button class="carousel-nav-btn btn-next d-flex align-items-center justify-content-center shadow-sm"
-                    (click)="scrollSlider('right')"
-                    aria-label="Suivant">
-              <i class="bi bi-chevron-right fs-6"></i>
-            </button>
-
-          </div>
-
-
-          <div class="text-center mt-3 d-md-none">
-            <a routerLink="/Prestation" class="link-teal fw-bold text-decoration-none small">Voir toutes nos expertises &rarr;</a>
+          <div>
+            <a routerLink="prestation-detail/expertise-toiture" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation toiture">
+              <span>Découvrir</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
-
       </div>
+    </div>
+
+    <!-- Carte 2 : Nettoyage et traitement hydrofuge -->
+    <div class="col-md-4">
+      <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border d-flex flex-column">
+        <div class="img-wrapper overflow-hidden position-relative" style="height: 180px;">
+          <img src="/assets/imgs/1974e4172d18bb19c71e521508ddf7f807d571da.png" alt="Nettoyage et hydrofuge" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+          <div>
+            <h3 class="h5 fw-bold mb-1 text-dark">Nettoyage et traitement hydrofuge</h3>
+            <p class="text-muted small mb-3">Démoussage, nettoyage et protection durable de la toiture.</p>
+          </div>
+          <div>
+            <a routerLink="/expertise-isolation-hydrofuge" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation hydrofuge">
+              <span>Découvrir</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 3 : Isolation thermique -->
+    <div class="col-md-4">
+      <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border d-flex flex-column">
+        <div class="img-wrapper overflow-hidden position-relative" style="height: 180px;">
+          <img src="/assets/imgs/Isolation.png" alt="Isolation thermique" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+          <div>
+            <h3 class="h5 fw-bold mb-1 text-dark">Isolation thermique</h3>
+            <p class="text-muted small mb-3">Isolation des combles, des rampants et des murs par l'extérieur.</p>
+          </div>
+          <div>
+            <a routerLink="/expertiseIsolationThermique" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation isolation thermique">
+              <span>Découvrir</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 4 : Traitement de l'humidité -->
+    <div class="col-md-4">
+      <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border d-flex flex-column">
+        <div class="img-wrapper overflow-hidden position-relative" style="height: 180px;">
+          <img src="/assets/imgs/Traitement humidité.png" alt="Traitement de l'humidité" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+          <div>
+            <h3 class="h5 fw-bold mb-1 text-dark">Traitement de l'humidité</h3>
+            <p class="text-muted small mb-3">Traitement des remontées capillaires, cuvelage et assainissement.</p>
+          </div>
+          <div>
+            <a routerLink="/expertise-trait-humidite" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation traitement humidité">
+              <span>Découvrir</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 5 : Charpente et bois -->
+    <div class="col-md-4">
+      <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border d-flex flex-column">
+        <div class="img-wrapper overflow-hidden position-relative" style="height: 180px;">
+          <img src="/assets/imgs/Figure (3).png" alt="Charpente et bois" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+          <div>
+            <h3 class="h5 fw-bold mb-1 text-dark">Charpente et bois</h3>
+            <p class="text-muted small mb-3">Traitement contre les insectes xylophages et rénovation.</p>
+          </div>
+          <div>
+            <a routerLink="/expertise-charpente" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation charpente">
+              <span>Découvrir</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 6 : Rénovation intérieure -->
+    <div class="col-md-4">
+      <div class="expertise-card rounded-4 overflow-hidden bg-white h-100 shadow-sm border d-flex flex-column">
+        <div class="img-wrapper overflow-hidden position-relative" style="height: 180px;">
+          <img src="/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg" alt="Rénovation intérieure" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+          <div>
+            <h3 class="h5 fw-bold mb-1 text-dark">Rénovation intérieure</h3>
+            <p class="text-muted small mb-3">Aménagement intérieur, menuiseries et confort de l'habitat.</p>
+          </div>
+          <div>
+            <a routerLink="/Expertise-renov-interne" class="btn-pill-custom d-inline-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded-pill small fw-bold" aria-label="Voir la prestation rénovation intérieure">
+              <span>Découvrir</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-4 d-md-none">
+    <a routerLink="/Prestation" class="link-teal fw-bold text-decoration-none small">Voir toutes nos expertises &rarr;</a>
+  </div>
+</div>
+
+
 
 
 
@@ -322,7 +272,7 @@
               <span>Réparation et rénovation de toiture</span>
             </li>
           </ul>
-          <a routerLink="/devis" class="btn btn-teal-solid px-4 py-3 fw-bold text-white d-inline-flex align-items-center">
+          <a routerLink="/services" class="btn btn-teal-solid px-4 py-3 fw-bold text-white d-inline-flex align-items-center">
             Obtenir mon devis gratuit <span class="ms-2">&rarr;</span>
           </a>
         </div>

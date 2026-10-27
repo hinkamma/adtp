@@ -1,18 +1,18 @@
 <main class="prestation-detail-page bg-white">
 
   <!-- SECTION 1 : HERO BANNER -->
-  <section class="prestation-hero text-white py-5 position-relative">
-    <div class="prestation-hero-overlay"></div>
-    <div class="container position-relative z-index-1 py-lg-5">
-      <div class="row align-items-center min-vh-40">
-        <div class="col-lg-9 py-4">
-          <h1 class="display-4 fw-bold mb-0 lh-tight">
-            {{ currentPrestation.heroTitle }}
-          </h1>
-        </div>
+<section class="prestation-hero text-white py-5 position-relative" [style.background-image]="'url(' + (currentPrestation.mainImage || 'assets/hero-bg.jpg') + ')'">
+  <div class="prestation-hero-overlay"></div>
+  <div class="container position-relative z-index-1 py-lg-5">
+    <div class="row align-items-center min-vh-40">
+      <div class="col-lg-9 py-4">
+        <h1 class="display-4 fw-bold mb-0 lh-tight">
+          {{ currentPrestation.heroTitle }}
+        </h1>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- FIL D'ARIANE -->
   <div class="breadcrumb-container py-3 bg-white border-bottom">

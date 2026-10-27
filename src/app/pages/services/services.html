@@ -1,0 +1,63 @@
+<section class="py-5 bg-white overflow-hidden position-relative service-component-section">
+  <div class="container py-lg-4 position-relative">
+
+    <!-- Bouton de navigation gauche -->
+    <button class="service-nav-btn btn-prev shadow-sm d-flex align-items-center justify-content-center"
+            (click)="scrollService('left')"
+            aria-label="Service précédent">
+      <i class="bi bi-chevron-left fs-5"></i>
+    </button>
+
+    <!-- Conteneur global du Slider -->
+    <div class="service-viewport">
+      <div #serviceTrack class="service-track d-flex">
+
+        <div *ngFor="let s of services" class="service-slide-item flex-shrink-0 w-100">
+          <div class="service-card-banner p-4 p-md-5 rounded-4 shadow-sm border bg-white mx-md-3">
+            <div class="row align-items-center g-4">
+
+              <!-- Colonne Texte -->
+              <div class="col-lg-7">
+                <span class="service-tag-orange d-block mb-2">{{ s.tag }}</span>
+                <h2 class="h3 fw-bold text-dark mb-3 lh-sm">{{ s.title }}</h2>
+                <p class="text-secondary small lh-lg mb-4">{{ s.description }}</p>
+
+                <!-- Liste des points avec icône coche verte/turquoise -->
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-4">
+                  <li *ngFor="let pt of s.points" class="d-flex align-items-start gap-2 small text-secondary fw-medium">
+                    <span class="text-teal mt-1 flex-shrink-0"><i class="bi bi-check-circle-fill"></i></span>
+                    <span>{{ pt }}</span>
+                  </li>
+                </ul>
+
+                <div>
+                  <a [routerLink]="s.link" class="btn btn-teal-custom px-4 py-3 fw-bold text-white text-decoration-none rounded-pill d-inline-flex align-items-center gap-2">
+                    <span>Obtenir mon devis gratuit</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Colonne Image (Mise en valeur fidèle aux maquettes) -->
+              <div class="col-lg-5">
+                <div class="service-img-frame p-2 bg-white shadow rounded-3 border">
+                  <img [src]="s.image" [alt]="s.title" class="w-100 object-fit-cover rounded-2" style="height: 280px;">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bouton de navigation droite -->
+    <button class="service-nav-btn btn-next shadow-sm d-flex align-items-center justify-content-center"
+            (click)="scrollService('right')"
+            aria-label="Service suivant">
+      <i class="bi bi-chevron-right fs-5"></i>
+    </button>
+
+  </div>
+</section>
