@@ -491,3 +491,125 @@
   display: flex !important;
   flex-direction: column;
 }
+
+
+
+/* =================================================================
+   SECTION EXPERTISES / SLIDER PLEINE LARGEUR
+   ============================================================= */
+
+/* Conteneur du slider */
+.expertises-viewport {
+  width: 100%;
+  position: relative;
+}
+
+/* Piste fluide des slides : on active overflow-x pour permettre le scrollTo, mais on masque les barres */
+.expertises-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE et Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Masquage de la barre de défilement sur Chrome, Safari, Opera */
+.expertises-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chaque carte prend toute la largeur disponible */
+.expertise-slide-item {
+  width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* --- BOUTONS DE NAVIGATION (Adaptés mobile et desktop) --- */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px; /* Taille compacte sur mobile */
+  height: 38px;
+  background-color: #ffffff;
+  color: #0d9488;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sur tablette et desktop, on redonne une taille un peu plus généreuse */
+@media (min-width: 768px) {
+  .carousel-nav-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.btn-prev {
+  left: -5px; /* Légèrement déporté à l'extérieur sur mobile */
+}
+
+.btn-next {
+  right: -5px;
+}
+
+@media (min-width: 768px) {
+  .btn-prev {
+    left: -15px;
+  }
+  .btn-next {
+    right: -15px;
+  }
+}
+
+.carousel-nav-btn:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.25) !important;
+}
+
+/* Design et animations professionnelles des cartes */
+.expertise-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.expertise-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(13, 148, 136, 0.15) !important;
+}
+
+/* Effet de zoom élégant sur l'image au survol */
+.expertise-card .img-wrapper img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expertise-card:hover .img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Bouton rond avec flèche situé à l'intérieur de la carte */
+.btn-arrow-circle {
+  width: 42px;
+  height: 42px;
+  background-color: #f8fafc;
+  color: #0d9488;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.expertise-card:hover .btn-arrow-circle {
+  background-color: #ff5722; /* Orange ADTB */
+  color: #ffffff;
+  border-color: #ff5722;
+  transform: translateX(3px);
+}

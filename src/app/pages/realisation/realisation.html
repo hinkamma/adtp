@@ -8,9 +8,9 @@
           <p class="lead mb-4 text-light">
             Découvrez nos réalisations en rénovation de l'habitat : travaux de toiture, isolation thermique, traitement de l'humidité, ventilation et rénovation intérieure.
           </p>
-          <a href="#contenu-realisationsss" class="btn btn-outline-light rounded-pill px-4 py-2 text-decoration-none">
+          <button type="button" class="btn btn-outline-light rounded-pill px-4 py-2" (click)="scrollToRealisations(contenuRealisations)">
             Découvrir nos réalisations <i class="bi bi-arrow-down"></i>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
   </div>
 
   <!-- 2. SECTION PRÉSENTATION & EXPÉRIENCE -->
-  <section class="py-5 bg-white" id="contenu-realisationsss">
+  <section #contenuRealisations class="py-5 bg-white" id="contenu-realisations">
     <div class="container py-4">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
@@ -50,11 +50,11 @@
 
           <div class="d-flex gap-4 small fw-bold text-dark">
             <span class="d-flex align-items-center gap-2">
-              <img src="/assets/icons/Background+Shadow.png" alt="Certifié RGE" width="20" height="20" class="custom-icon">
+              <img src="/assets/icons/ico_rge.png" alt="Certifié RGE" width="20" height="20" class="credential-icon">
               Certifié RGE
             </span>
             <span class="d-flex align-items-center gap-2">
-              <img src="/assets/icons/SVG (12).png" alt="Garantie décennale" width="20" height="20" class="custom-icon">
+              <img src="/assets/icons/SVG (12).png" alt="Garantie décennale" width="20" height="20" class="credential-icon">
               Garantie décennale
             </span>
           </div>
@@ -123,7 +123,7 @@
   </section>
 
   <!-- 4. GRILLE DES CHANTIERS / SAVOIR-FAIRE -->
-  <section class="py-5 bg-white">
+  <section #contenuRealisations class="py-5 bg-white">
     <div class="container py-4">
       <!-- En-tête -->
       <div class="row align-items-end mb-4">
@@ -213,7 +213,7 @@
 
       <!-- Liste des cartes de projets -->
       <div class="row g-4">
-        <div class="col-md-6" *ngFor="let p of projets">
+        <div class="col-md-6" *ngFor="let p of filteredProjets">
           <div class="card border-0 shadow-sm rounded overflow-hidden h-100">
             <!-- Image unique Avant / Après avec séparateur et badges -->
             <div class="position-relative comparison-box overflow-hidden">
@@ -250,7 +250,7 @@
 
               <!-- Boutons d'action -->
               <div class="d-flex justify-content-between align-items-center">
-                <a routerLink="/contact" class="text-decoration-none text-teal fw-bold small">Voir le détail du projet <i class="bi bi-arraow-down"></i></a>
+                <!-- <a routerLink="/contact" class="text-decoration-none text-teal fw-bold small">Voir le détail du projet <i class="bi bi-arraow-down"></i></a> -->
                 <a routerLink="/devis" class="btn btn-teal-sm text-white px-3 py-1 rounded small text-decoration-none d-inline-flex align-items-center gap-1">
                   <span>Demander un devis similaire</span>
                   <i class="bi bi-arrow-right"></i>

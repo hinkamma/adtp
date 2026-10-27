@@ -10,6 +10,7 @@ import { NgForOf } from '@angular/common';
 })
 
 export class Realisation {
+
   // Filtre actif pour les chantiers
   activeFilter = 'tous';
 
@@ -33,6 +34,7 @@ export class Realisation {
   projets = [
     {
       title: 'Réfection complète de toiture',
+      filterCategory: 'toiture',
       category: 'RÉNOVATION DE TOITURE EN SEINE-ET-MARNE',
       description: 'Remplacement de la couverture, traitement de la charpente et isolation thermique pour une toiture durable et performante.',
       duration: '3 semaines',
@@ -42,6 +44,7 @@ export class Realisation {
     },
     {
       title: 'Isolation des murs par l’extérieur (ITE)',
+      filterCategory: 'isolation',
       category: 'ISOLATION THERMIQUE EN SEINE-ET-MARNE',
       description: 'Améliorez le confort thermique de votre maison et réduisez vos dépenses énergétiques grâce à une isolation extérieure performante.',
       duration: '2 semaines',
@@ -52,6 +55,7 @@ export class Realisation {
     },
     {
       title: 'Isolation des combles perdus',
+      filterCategory: 'isolation',
       category: 'ISOLATION DES COMBLES EN SEINE-ET-MARNE',
       description: 'Améliorez votre confort thermique été comme hiver et réduisez vos dépenses énergétiques grâce à une isolation performante.',
       duration: '1 semaine',
@@ -61,6 +65,7 @@ export class Realisation {
     },
     {
       title: 'Travaux d’étanchéité de terrasse',
+      filterCategory: 'etancheite',
       category: 'ÉTANCHÉITÉ DE TERRASSE - SEINE-ET-MARNE',
       description: 'Protégez votre terrasse contre les infiltrations d’eau grâce à une étanchéité durable et performante.',
       duration: '4 jours',
@@ -70,7 +75,17 @@ export class Realisation {
     }
   ];
 
+  get filteredProjets() {
+    return this.activeFilter === 'tous'
+      ? this.projets
+      : this.projets.filter((projet) => projet.filterCategory === this.activeFilter);
+  }
+
   setFilter(filter: string) {
     this.activeFilter = filter;
+  }
+
+  scrollToRealisations(section: HTMLElement): void {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

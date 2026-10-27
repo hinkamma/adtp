@@ -28,6 +28,10 @@
   padding: 100px 0;
 }
 
+#contenu-realisations {
+  scroll-margin-top: 5rem;
+}
+
 /* Section Avantages fond sombre */
 .advantages-section {
   background-color: #1a1c23; /* Teinte sombre fidèle à la maquette */
@@ -48,6 +52,10 @@
 .custom-icon {
   object-fit: contain;
   filter: brightness(0) invert(1); /* Rend les icônes blanches si ce sont des SVG neutres */
+}
+
+.credential-icon {
+  object-fit: contain;
 }
 
 
