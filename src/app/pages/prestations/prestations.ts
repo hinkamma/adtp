@@ -64,7 +64,7 @@ export class Prestations {
       id: 'isolation-extérieure',
       title: 'Isolation Thermique Extérieure (ITE)',
       description: 'Ravalement isolant pour supprimer les ponts thermiques et embellir la façade.',
-      image: 'assets/imgs/isolation-1.jpg',
+      image: 'assets/imgs/Réalisation ADTB 7.png',
       badge: 'Façade',
       badgeClass: 'bg-orange'
     },
@@ -72,7 +72,7 @@ export class Prestations {
       id: 'ventilation-vmi',
       title: 'Ventilation & Qualité de l\'air',
       description: 'Installation de VMC/VMI pour réguler le taux d’hygrométrie et purifier l’air intérieur.',
-      image: 'assets/imgs/ventilation-1.jpg',
+      image: 'assets/imgs/67c4d17121ec61de90504cff28ec7b3228758657.jpg',
       badge: 'Confort',
       badgeClass: 'bg-teal'
     }

@@ -613,3 +613,15 @@
   border-color: #ff5722;
   transform: translateX(3px);
 }
+
+
+.btn-pill-custom {
+  background-color: rgba(13, 148, 136, 0.1);
+  color: #0d9488;
+  transition: all 0.3s ease;
+}
+
+.btn-pill-custom:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+}
