@@ -38,7 +38,7 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
     id: 'toiture',
     heroTitle: 'Rénovation et Réfection de Toiture',
     heroImage: '/assets/imgs/58844a17038808e523cff276a8f54d9cf4eada09.jpg',
-    category: '01 / EXTÉRIEUR',
+    category: 'UN CONFORT THERMIQUE DURABLE',
     title: 'Rénovation Et Réfection De Toiture',
     description1: 'La toiture est la première barrière de votre maison contre les intempéries. ADTB réalise la réfection de couverture, la réparation des éléments endommagés et la recherche de fuites[cite: 2].',
     description2: 'Nos couvreurs qualifiés interviennent avec rigueur pour assurer une étanchéité parfaite et prolonger la durée de vie de votre toit.',
@@ -58,7 +58,7 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
     id: 'expertise-isolation-hydrofuge',
     heroTitle: 'Nettoyage et traitement hydrofuge',
     heroImage: '/assets/imgs/1974e4172d18bb19c71e521508ddf7f807d571da.png',
-    category: '02 / ENTRETIEN',
+    category: 'UN CONFORT THERMIQUE DURABLE',
     title: 'Nettoyage et traitement hydrofuge de toiture',
     description1: 'Démoussage, nettoyage haute pression et traitement hydrofuge pour éliminer les mousses, lichens et salissures incrustées sur vos tuiles[cite: 2].',
     description2: 'Le traitement hydrofuge crée une barrière protectrice invisible qui empêche l’eau de pénétrer tout en laissant respirer les matériaux.',
@@ -78,7 +78,7 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
     id: 'isolation-des-combles',
     heroTitle: 'Expert en isolation et aménagement des combles',
     heroImage: '/assets/imgs/Isolation.png',
-    category: '03 / ÉNERGIE RGE',
+    category: 'UN CONFORT THERMIQUE DURABLE',
     title: 'Moins de déperditions de chaleur. Plus de confort au quotidien.',
     description1: 'Dans une maison mal isolée, jusqu’à 30 % des déperditions de chaleur peuvent provenir de la toiture. L’isolation des combles est donc essentielle pour améliorer le confort thermique de votre habitation et optimiser ses performances énergétiques[cite: 1].',
     description2: 'ADTB vous accompagne dans l’isolation de vos combles perdus ou aménageables, avec des solutions adaptées à votre maison pour limiter les pertes de chaleur, améliorer votre confort en toute saison et réduire vos dépenses énergétiques[cite: 1].',
@@ -98,7 +98,7 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
     techniques: [
       {
         num: '01',
-        title: 'ISOLATION DES COMBLES PERDUS',
+        title: 'UN CONFORT THERMIQUE DURABLE',
         subtitle: 'L’isolation par soufflage',
         desc1: 'Vos combles ne sont pas aménagés ? L’isolation des combles perdus par soufflage consiste à répartir uniformément un isolant en vrac sur le plancher des combles afin de créer une couche isolante qui limite les déperditions de chaleur par la toiture.',
         desc2: 'Particulièrement adaptée aux espaces difficiles d’accès, cette technique contribue à améliorer les performances thermiques de votre maison, à renforcer votre confort intérieur et à réduire vos besoins en chauffage.',
@@ -129,7 +129,7 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
     id: 'expertise-trait-humidite',
     heroTitle: 'Traitement de l’humidité',
     heroImage: '/assets/imgs/Traitement humidité.png',
-    category: '04 / ASSAINISSEMENT',
+    category: 'UN CONFORT THERMIQUE DURABLE',
     title: 'Traitement de l’humidité et des remontées capillaires',
     description1: 'Traitement des remontées capillaires, assainissement des murs par injection et cuvelage pour protéger durablement votre maçonnerie.',
     description2: 'Éliminez définitivement les moisissures, le salpêtre et les odeurs d’humidité pour un air intérieur sain.',
@@ -170,7 +170,7 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
     id: 'expertise-charpente',
     heroTitle: 'Charpente et bois',
     heroImage: '/assets/imgs/Figure (3).png',
-    category: '05 / STRUCTURE',
+    category: 'UN CONFORT THERMIQUE DURABLE',
     title: 'Traitement de charpente et protection du bois',
     description1: 'Diagnostic parasitaire, traitement curatif et préventif contre les insectes xylophages (vrillettes, capricornes) et rénovation de charpente.',
     description2: 'Nous veillons à garantir la solidité structurelle de votre toiture et de vos boiseries.',
@@ -186,11 +186,11 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
   },
 
   // 6. RÉNOVATION INTÉRIEURE
-  'Expertise-renov-interne': {
-    id: 'Expertise-renov-interne',
+  'expertise-renov-interne': {
+    id: 'expertise-renov-interne',
     heroTitle: 'Rénovation intérieure',
     heroImage: '/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg',
-    category: '06 / INTÉRIEUR',
+    category: 'UN CONFORT THERMIQUE DURABLE',
     title: 'Rénovation intérieure et aménagement de l’habitat',
     description1: 'Aménagement intérieur, cloisons, plâtrerie, peintures et agencement sur-mesure pour moderniser vos espaces.',
     description2: 'Donnez vie à vos projets de réagencement avec des finitions soignées adaptées à votre mode de vie.',
@@ -224,13 +224,15 @@ export class PrestationDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const id = params.get('id') || 'isolation-exterieure';
-      if (PRESTATIONS_DATABASE[id]) {
-        this.currentPrestation = PRESTATIONS_DATABASE[id];
-      } else {
-        // Fallback par défaut vers l'isolation extérieure si l'ID n'est pas trouvé
-        this.currentPrestation = PRESTATIONS_DATABASE['isolation-exterieure'];
-      }
+      const id = params.get('id') || 'toiture';
+      this.currentPrestation =
+        PRESTATIONS_DATABASE[id] ||
+        PRESTATIONS_DATABASE[id.toLowerCase()] ||
+        Object.values(PRESTATIONS_DATABASE).find(
+          prestation => prestation.id.toLowerCase() === id.toLowerCase()
+        ) ||
+        PRESTATIONS_DATABASE['toiture'];
+
       if (isPlatformBrowser(this.platformId)) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

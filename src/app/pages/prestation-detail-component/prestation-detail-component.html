@@ -1,7 +1,7 @@
 <main class="prestation-detail-page bg-white">
- 
+
   <!-- 1. HERO BANNER -->
-  <section class="prestation-hero text-white position-relative" [style.background-image]="'url(' + currentPrestation.heroImage + ')'">
+  <section class="prestation-hero text-white position-relative" [style.background-image]="'url(&quot;' + currentPrestation.heroImage + '&quot;)'">
     <div class="prestation-hero-overlay"></div>
     <div class="container position-relative z-index-1 py-5">
       <div class="row align-items-center min-vh-50 py-lg-4">
@@ -17,7 +17,7 @@
   <!-- 2. FIL D'ARIANE ET SOUS-NAVIGATION ANCRÉE -->
   <div class="bg-white py-3 border-bottom shadow-sm sticky-top" style="top: 0; z-index: 1020;">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      
+
       <!-- Fil d'Ariane -->
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0 small">
@@ -25,7 +25,7 @@
             <a routerLink="/" class="text-decoration-none text-muted">Accueil</a>
           </li>
           <li class="breadcrumb-item">
-            <a routerLink="/prestations" class="text-decoration-none text-muted">Nos prestations</a>
+            <a routerLink="/Prestation" class="text-decoration-none text-muted">Nos prestations</a>
           </li>
           <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">
             {{ currentPrestation.heroTitle }}

@@ -14,6 +14,45 @@ export class Home {
 
   currentIndex = 0;
 
+  expertises = [
+    {
+      id: 'toiture',
+      title: 'Toiture',
+      description: 'Rénovation, réparation et recherche de fuites.',
+      image: '/assets/imgs/58844a17038808e523cff276a8f54d9cf4eada09.jpg'
+    },
+    {
+      id: 'expertise-isolation-hydrofuge',
+      title: 'Nettoyage et traitement hydrofuge',
+      description: 'Démoussage, nettoyage et protection durable de la toiture.',
+      image: '/assets/imgs/1974e4172d18bb19c71e521508ddf7f807d571da.png'
+    },
+    {
+      id: 'isolation-des-combles',
+      title: 'Isolation thermique',
+      description: "Isolation des combles, des rampants et des murs par l'extérieur.",
+      image: '/assets/imgs/Isolation.png'
+    },
+    {
+      id: 'expertise-trait-humidite',
+      title: "Traitement de l'humidité",
+      description: 'Traitement des remontées capillaires, cuvelage et assainissement.',
+      image: '/assets/imgs/Traitement humidité.png'
+    },
+    {
+      id: 'expertise-charpente',
+      title: 'Charpente et bois',
+      description: 'Traitement contre les insectes xylophages et rénovation.',
+      image: '/assets/imgs/Figure (3).png'
+    },
+    {
+      id: 'expertise-renov-interne',
+      title: 'Rénovation intérieure',
+      description: "Aménagement intérieur, menuiseries et confort de l'habitat.",
+      image: '/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg'
+    }
+  ];
+
   services = [
     {
       tag: 'NETTOYAGE ET TRAITEMENT HYDROFUGE',

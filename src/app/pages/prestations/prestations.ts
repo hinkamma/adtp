@@ -53,7 +53,7 @@ export class Prestations {
       badgeClass: 'bg-teal text-white'
     },
     {
-      id: 'Expertise-renov-interne',
+      id: 'expertise-renov-interne',
       title: 'Rénovation intérieure',
       description: 'Aménagement intérieur, cloisons, plâtrerie, peintures et agencement sur-mesure.',
       image: '/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg',
@@ -69,10 +69,10 @@ export class Prestations {
       badgeClass: 'bg-orange text-white'
     },
     {
-      id: 'ventilation',
-      title: 'Ventilation & Qualité de l’air',
+      id: 'pompe-chaleur',
+      title: 'Pompes A C',
       description: 'Installation de VMC/VMI pour réguler le taux d’hygrométrie et purifier l’air intérieur.',
-      image: '/assets/imgs/Traitement humidité.png',
+      image: '/assets/imgs/climatiseur.png',
       badge: 'Confort',
       badgeClass: 'bg-teal text-white'
     }
