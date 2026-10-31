@@ -1,0 +1,86 @@
+.help-hero {
+  background:
+    linear-gradient(110deg, rgba(9, 47, 44, 0.94), rgba(13, 148, 136, 0.68)),
+    url('/assets/imgs/Nettoyage & hydrofuge.png') center / cover no-repeat;
+}
+
+.help-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(9, 47, 44, 0.35), transparent);
+}
+
+.z-index-1 {
+  position: relative;
+  z-index: 1;
+}
+
+.text-orange,
+.section-tag-orange {
+  color: #ff5722;
+}
+
+.section-tag-orange {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.help-intro {
+  max-width: 680px;
+}
+
+.help-step-card {
+  border: 1px solid #e5e7eb;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.help-step-card:hover {
+  transform: translateY(-4px);
+  border-color: #0d9488;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.help-step-badge {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #0d9488;
+  color: #fff;
+  font-weight: 700;
+}
+
+.help-assurance {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+}
+
+.help-primary-button {
+  background-color: #0d9488;
+  border-color: #0d9488;
+}
+
+.help-primary-button:hover {
+  background-color: #0f766e;
+  border-color: #0f766e;
+}
+
+.help-secondary-button {
+  color: #0d9488;
+  border: 1px solid #0d9488;
+}
+
+.help-secondary-button:hover {
+  background-color: #0d9488;
+  color: #fff;
+}
+
+@media (max-width: 575.98px) {
+  .help-hero h1 {
+    font-size: 2.25rem;
+  }
+}

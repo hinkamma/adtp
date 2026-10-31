@@ -69,23 +69,18 @@
 
       </div>
 
-      <!-- COLONNE DE DROITE : Les 2 images empilées du chantier -->
+      <!-- COLONNE DE DROITE : Jusqu'à 3 images du chantier -->
       <div class="col-lg-5">
         <div class="d-flex flex-column gap-4">
-
-          <!-- Image 1 -->
-          <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border">
-            <img [src]="currentProjet.images[0]" [alt]="currentProjet.title" class="w-100 object-fit-cover" style="height: 280px;">
-          </div>
-
-          <!-- Image 2 avec légende ADTB sous l'image -->
-          <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border">
-            <img [src]="currentProjet.images[1]" [alt]="currentProjet.title" class="w-100 object-fit-cover" style="height: 280px;">
+          <div class="image-box shadow-sm rounded-3 overflow-hidden bg-light border"
+               *ngFor="let image of projectImages; let last = last; let index = index">
+            <img [src]="image" [alt]="currentProjet.title + ' - image ' + (index + 1)" class="w-100 object-fit-cover" style="height: 280px;">
+            @if (last) {
             <div class="py-2 px-3 bg-white border-top">
               <p class="x-small text-muted mb-0 fw-medium">ADTB Rénovation — Le savoir-faire en images</p>
             </div>
+            }
           </div>
-
         </div>
       </div>
 

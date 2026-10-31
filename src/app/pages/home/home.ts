@@ -1,18 +1,29 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { finalize } from 'rxjs';
+import { EmailjsService } from '../../shared/emailjs.service';
+import { PRESTATIONS_DATABASE } from '../prestation-detail-component/prestation-detail-component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, NgForOf],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
+  submittingDevis = false;
+  devisNotice: { type: 'success' | 'error' | 'info'; message: string } | null = null;
 
-   @ViewChild('serviceTrack', { static: false }) serviceTrack!: ElementRef;
-
-  currentIndex = 0;
+  devisData = {
+    typeTravaux: '',
+    projet: '',
+    codePostal: '',
+    nom: '',
+    telephone: '',
+    email: '',
+  };
 
   expertises = [
     {
@@ -53,88 +64,67 @@ export class Home {
     }
   ];
 
-  services = [
-    {
-      tag: 'NETTOYAGE ET TRAITEMENT HYDROFUGE',
-      title: 'Une toiture propre et protégée durablement',
-      description: 'Préservez votre couverture grâce au nettoyage et au traitement hydrofuge de toiture. ADTB élimine les mousses et les salissures, tout en renforçant la protection de vos tuiles contre l’humidité et les infiltrations d’eau.',
-      points: [
-        'Démoussage et nettoyage de toiture',
-        'Traitement hydrofuge des tuiles',
-        'Protection contre l’humidité et les infiltrations d’eau'
-      ],
-      image: '/assets/imgs/1974e4172d18bb19c71e521508ddf7f807d571da.png',
-      link: '/expertise-isolation-hydrofuge'
-    },
-    {
-      tag: 'ISOLATION THERMIQUE',
-      title: 'Améliorez votre confort et réduisez les pertes de chaleur',
-      description: 'Une bonne isolation thermique améliore le confort de votre logement en toute saison. ADTB vous accompagne dans vos travaux d’isolation des combles, des rampants de toiture et des murs extérieurs pour optimiser la performance énergétique de votre habitat.',
-      points: [
-        'Isolation des combles perdus et aménagés',
-        'Isolation thermique des murs par l’extérieur',
-        'Amélioration du confort thermique et de la performance énergétique'
-      ],
-      image: '/assets/imgs/Isolation.png',
-      link: '/expertiseIsolationThermique'
-    },
-    {
-      tag: 'TRAITEMENT DE L’HUMIDITÉ',
-      title: 'Assainissez vos murs et protégez votre habitat',
-      description: 'Murs humides, moisissures ou remontées capillaires : ADTB identifie les causes de l’humidité et vous propose des solutions adaptées pour assainir durablement votre logement et protéger vos murs.',
-      points: [
-        'Traitement des remontées capillaires',
-        'Assainissement des murs par injection',
-        'Cuvelage et protection des murs contre l’humidité'
-      ],
-      image: '/assets/imgs/Traitement humidité.png',
-      link: '/expertise-trait-humidite'
-    },
-    {
-      tag: 'CHARPENTE & BOIS',
-      title: 'Traitement de charpente et protection du bois',
-      description: 'Les vrillettes, Capricornes et autres insectes xylophages peuvent endommager vos bois de charpente et compromettre la solidité de votre habitation.',
-      points: [
-        'Diagnostic de charpente et détection des infestations',
-        'Traitement du bois contre les vrillettes, capricornes et autres insectes xylophages',
-        'Protection préventive et curative des bois de charpente'
-      ],
-      image: '/assets/imgs/Figure (3).png',
-      link: '/expertise-charpente'
-    },
-    {
-      tag: 'RÉNOVATION INTÉRIEURE ET AMÉNAGEMENT DE L’HABITAT',
-      title: 'Transformez votre intérieur en un espace qui vous ressemble',
-      description: 'Envie de moderniser votre maison ou de rénover votre appartement ? ADTB vous accompagne dans vos travaux de rénovation intérieure et d’aménagement, pour créer des espaces fonctionnels, confortables et adaptés à votre mode de vie.',
-      points: [
-        'Rénovation et aménagement intérieur de maisons et d’appartements',
-        'Optimisation et modernisation des espaces de vie',
-        'Travaux d’isolation intérieure et amélioration du confort thermique'
-      ],
-      image: '/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg',
-      link: '/Expertise-renov-interne'
-    }
-  ];
+  readonly prestations = Object.values(PRESTATIONS_DATABASE).map(prestation => ({
+    id: prestation.id,
+    title: prestation.heroTitle,
+  }));
 
-  scrollService(direction: 'left' | 'right') {
-    const track = this.serviceTrack.nativeElement;
-    const totalCards = this.services.length;
+  constructor(
+    private readonly emailjs: EmailjsService,
+    private readonly changeDetector: ChangeDetectorRef,
+  ) {}
 
-    if (totalCards === 0) return;
-
-    // Gestion du défilement infini de gauche à droite ou droite à gauche
-    if (direction === 'right') {
-      this.currentIndex = (this.currentIndex + 1) % totalCards;
-    } else {
-      this.currentIndex = (this.currentIndex - 1 + totalCards) % totalCards;
+  onSubmitDevis(): void {
+    if (this.submittingDevis) {
+      return;
     }
 
-    const slideWidth = track.clientWidth;
-    track.scrollTo({
-      left: this.currentIndex * slideWidth,
-      behavior: 'smooth'
+    this.submittingDevis = true;
+    this.devisNotice = null;
+    const selectedPrestation = this.prestations.find(prestation => prestation.id === this.devisData.typeTravaux);
+    if (!selectedPrestation) {
+      this.devisNotice = {
+        type: 'error',
+        message: 'Veuillez sélectionner une prestation avant d’envoyer votre demande.',
+      };
+      this.submittingDevis = false;
+      return;
+    }
+
+    this.emailjs.sendRequest({
+      type: 'devis',
+      nom: this.devisData.nom,
+      telephone: this.devisData.telephone,
+      email: this.devisData.email,
+      codePostal: this.devisData.codePostal,
+      typeTravaux: selectedPrestation.title,
+      projet: this.devisData.projet || `Demande de devis pour ${selectedPrestation.title}`,
+    }).pipe(finalize(() => {
+      this.submittingDevis = false;
+      this.changeDetector.markForCheck();
+    })).subscribe({
+      next: result => {
+        this.devisNotice = result === 'email-client-opened'
+          ? {
+            type: 'info',
+            message: 'Votre application de messagerie s’est ouverte avec votre demande. Vérifiez le message puis confirmez son envoi.',
+          }
+          : {
+            type: 'success',
+            message: 'Votre demande de devis a bien été envoyée.',
+          };
+        if (result === 'emailjs-sent') {
+          this.devisData = { typeTravaux: '', projet: '', codePostal: '', nom: '', telephone: '', email: '' };
+        }
+      },
+      error: error => {
+        this.devisNotice = {
+          type: 'error',
+          message: error instanceof Error && error.name === 'TimeoutError'
+              ? 'Le service met trop de temps à répondre. Votre demande n’a pas été confirmée : veuillez réessayer ou nous appeler au 01 60 75 16 64.'
+              : 'Votre demande n’a pas pu être envoyée. Veuillez réessayer ou nous contacter par téléphone.',
+        };
+      },
     });
   }
-
-
 }

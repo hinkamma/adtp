@@ -57,7 +57,7 @@
         </div>
       </div>
       <!-- Comment ça marche ? -->
-      <div class="pt-5 pb-3">
+      <div id="comment-ca-marche" class="pt-5 pb-3">
         <span class="section-tag-orange">COMMENT ÇA MARCHE ?</span>
         <h2 class="h2 fw-bold text-dark mt-1 mb-4">Un projet simple et bien accompagné</h2>
 
@@ -135,81 +135,8 @@
   </section>
 
 
-
-
-
-
-  <section class="py-5 bg-white overflow-hidden position-relative service-component-section">
-  <div class="container py-lg-4 position-relative">
-
-    <!-- Bouton de navigation gauche -->
-    <button class="service-nav-btn btn-prev shadow-sm d-flex align-items-center justify-content-center"
-            (click)="scrollService('left')"
-            aria-label="Service précédent">
-      <i class="bi bi-chevron-left fs-5"></i>
-    </button>
-
-    <!-- Conteneur global du Slider -->
-    <div class="service-viewport">
-      <div #serviceTrack class="service-track d-flex">
-
-        <div *ngFor="let s of services" class="service-slide-item flex-shrink-0 w-100">
-          <div class="service-card-banner p-4 p-md-5 rounded-4 shadow-sm border bg-white mx-md-3">
-            <div class="row align-items-center g-4">
-
-              <!-- Colonne Texte -->
-              <div class="col-lg-7">
-                <span class="service-tag-orange d-block mb-2">{{ s.tag }}</span>
-                <h2 class="h3 fw-bold text-dark mb-3 lh-sm">{{ s.title }}</h2>
-                <p class="text-secondary small lh-lg mb-4">{{ s.description }}</p>
-
-                <!-- Liste des points avec icône coche verte/turquoise -->
-                <ul class="list-unstyled d-flex flex-column gap-2 mb-4">
-                  <li *ngFor="let pt of s.points" class="d-flex align-items-start gap-2 small text-secondary fw-medium">
-                    <span class="text-teal mt-1 flex-shrink-0"><i class="bi bi-check-circle-fill"></i></span>
-                    <span>{{ pt }}</span>
-                  </li>
-                </ul>
-
-                <div>
-                  <a [routerLink]="s.link" class="btn btn-teal-custom px-4 py-3 fw-bold text-white text-decoration-none rounded-pill d-inline-flex align-items-center gap-2">
-                    <span>Obtenir mon devis gratuit</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Colonne Image (Mise en valeur fidèle aux maquettes) -->
-              <div class="col-lg-5">
-                <div class="service-img-frame p-2 bg-white shadow rounded-3 border">
-                  <img [src]="s.image" [alt]="s.title" class="w-100 object-fit-cover rounded-2" style="height: 280px;">
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Bouton de navigation droite -->
-    <button class="service-nav-btn btn-next shadow-sm d-flex align-items-center justify-content-center"
-            (click)="scrollService('right')"
-            aria-label="Service suivant">
-      <i class="bi bi-chevron-right fs-5"></i>
-    </button>
-
-  </div>
-  </section>
-
-
-
-
-
-
   <!-- SECTION 3 : RÉNOVATION DE TOITURE (AVANT / APRÈS) -->
-  <!-- <section class="py-5 bg-white">
+  <section class="py-5 bg-white">
     <div class="container py-4">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
@@ -233,7 +160,7 @@
               <span>Réparation et rénovation de toiture</span>
             </li>
           </ul>
-          <a routerLink="/services" class="btn btn-teal-solid px-4 py-3 fw-bold text-white d-inline-flex align-items-center">
+          <a routerLink="/devis" [queryParams]="{ projet: 'Nettoyage et rénovation de toiture' }" class="btn btn-teal-solid px-4 py-3 fw-bold text-white d-inline-flex align-items-center">
             Obtenir mon devis gratuit <span class="ms-2">&rarr;</span>
           </a>
         </div>
@@ -248,7 +175,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
 
   <!-- SECTION 4 : POURQUOI CHOISIR ADTB ? (VERT SOMBRE) -->
@@ -411,40 +338,47 @@
             <div class="form-card bg-white p-4 p-md-4 rounded-3 shadow">
               <h3 class="h5 fw-bold text-orange text-center mb-4">Demander un devis gratuit et sans engagement</h3>
 
-              <form class="row g-3">
+              <div *ngIf="devisNotice" class="alert d-flex align-items-center gap-2"
+                   [class.alert-success]="devisNotice.type === 'success'"
+                   [class.alert-danger]="devisNotice.type === 'error'"
+                   [class.alert-info]="devisNotice.type === 'info'"
+                   role="status" aria-live="polite">
+                <i class="bi" [class.bi-check-circle-fill]="devisNotice.type === 'success'"
+                   [class.bi-exclamation-triangle-fill]="devisNotice.type === 'error'"
+                   [class.bi-info-circle-fill]="devisNotice.type === 'info'"></i>
+                <span>{{ devisNotice.message }}</span>
+              </div>
+              <form class="row g-3" (ngSubmit)="onSubmitDevis()">
                 <div class="col-md-6">
                   <label class="form-label x-small fw-bold text-muted">Type de travaux *</label>
-                  <select class="form-select form-select-sm">
-                    <option selected>Sélectionnez un type de travaux</option>
-                    <option>Toiture</option>
-                    <option>Nettoyage & Hydrofuge</option>
-                    <option>Isolation thermique</option>
-                    <option>Humidité</option>
+                  <select class="form-select form-select-sm" [(ngModel)]="devisData.typeTravaux" name="typeTravaux" autocomplete="off" required>
+                    <option value="" disabled>Sélectionnez une prestation</option>
+                    <option *ngFor="let prestation of prestations" [value]="prestation.id">{{ prestation.title }}</option>
                   </select>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label x-small fw-bold text-muted">Votre projet</label>
-                  <textarea class="form-control form-control-sm" rows="1" placeholder="Décrivez votre projet..."></textarea>
+                  <textarea class="form-control form-control-sm" rows="1" placeholder="Décrivez votre projet..." [(ngModel)]="devisData.projet" name="projet" autocomplete="off"></textarea>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label x-small fw-bold text-muted">Code postal *</label>
-                  <input type="text" class="form-control form-control-sm" placeholder="Votre code postal">
+                  <input type="text" class="form-control form-control-sm" placeholder="Votre code postal" [(ngModel)]="devisData.codePostal" name="codePostal" autocomplete="off" required>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label x-small fw-bold text-muted">Votre nom *</label>
-                  <input type="text" class="form-control form-control-sm" placeholder="Votre nom">
+                  <input type="text" class="form-control form-control-sm" placeholder="Votre nom" [(ngModel)]="devisData.nom" name="nom" autocomplete="off" required>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label x-small fw-bold text-muted">Téléphone *</label>
-                  <input type="tel" class="form-control form-control-sm" placeholder="Votre téléphone">
+                  <input type="tel" class="form-control form-control-sm" placeholder="Votre téléphone" [(ngModel)]="devisData.telephone" name="telephone" autocomplete="off" required>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label x-small fw-bold text-muted">Email</label>
-                  <input type="email" class="form-control form-control-sm" placeholder="Votre email">
+                  <label class="form-label x-small fw-bold text-muted">Email *</label>
+                  <input type="email" class="form-control form-control-sm" placeholder="Votre email" [(ngModel)]="devisData.email" name="email" autocomplete="off" required>
                 </div>
                 <div class="col-12 mt-4">
-                  <button type="submit" class="btn btn-teal-submit text-white w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center">
-                    Envoyer ma demande <span class="ms-2"><i class="bi bi-arrow-right"></i></span>
+                  <button type="submit" class="btn btn-teal-submit text-white w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center" [disabled]="submittingDevis">
+                    {{ submittingDevis ? 'Envoi en cours…' : 'Envoyer ma demande' }} <span class="ms-2"><i class="bi bi-arrow-right"></i></span>
                   </button>
                 </div>
               </form>

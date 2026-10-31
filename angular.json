@@ -72,7 +72,8 @@
               "buildTarget": "ADTP_front:build:production"
             },
             "development": {
-              "buildTarget": "ADTP_front:build:development"
+              "buildTarget": "ADTP_front:build:development",
+              "prebundle": false
             }
           },
           "defaultConfiguration": "development"

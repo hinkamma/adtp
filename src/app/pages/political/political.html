@@ -43,15 +43,15 @@
           <div class="p-4 bg-light rounded-3 border mb-4">
             <span class="text-uppercase text-muted x-small fw-bold d-block mb-3" style="letter-spacing: 0.5px;">Dans cette politique</span>
             <ul class="list-unstyled d-flex flex-column gap-2 small mb-0">
-              <li><a href="#intro" class="text-decoration-none text-secondary hover-teal">01 Introduction</a></li>
-              <li><a href="#recueillons" class="text-decoration-none text-secondary hover-teal">02 Informations recueillies</a></li>
-              <li><a href="#collecte" class="text-decoration-none text-secondary hover-teal">03 Collecte des informations</a></li>
-              <li><a href="#utilisation" class="text-decoration-none text-secondary hover-teal">04 Utilisation des informations</a></li>
-              <li><a href="#partage" class="text-decoration-none text-secondary hover-teal">05 Partage des informations</a></li>
-              <li><a href="#cookies" class="text-decoration-none text-secondary hover-teal">06 Cookies & technologies</a></li>
-              <li><a href="#mineurs" class="text-decoration-none text-secondary hover-teal">07 Mineurs</a></li>
-              <li><a href="#droits-ue" class="text-decoration-none text-secondary hover-teal">08 Vos droits & protection UE</a></li>
-              <li><a href="#contact-section" class="text-decoration-none text-secondary hover-teal">09 Nous contacter</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="intro" class="text-decoration-none text-secondary hover-teal">01 Introduction</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="recueillons" class="text-decoration-none text-secondary hover-teal">02 Informations recueillies</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="collecte" class="text-decoration-none text-secondary hover-teal">03 Collecte des informations</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="utilisation" class="text-decoration-none text-secondary hover-teal">04 Utilisation des informations</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="partage" class="text-decoration-none text-secondary hover-teal">05 Partage des informations</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="cookies" class="text-decoration-none text-secondary hover-teal">06 Cookies & technologies</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="mineurs" class="text-decoration-none text-secondary hover-teal">07 Mineurs</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="droits-ue" class="text-decoration-none text-secondary hover-teal">08 Vos droits & protection UE</a></li>
+              <li><a routerLink="/politique-confidentialite" fragment="contact-section" class="text-decoration-none text-secondary hover-teal">09 Nous contacter</a></li>
             </ul>
           </div>
 
@@ -161,3 +161,26 @@
           <!-- 08 Droits UE -->
           <div id="droits-ue" class="pb-4 border-bottom">
             <h3 class="h5 fw-bold text-dark mb-3"><span class="text-teal me-2">08</span> Utilisation de vos informations et droits dans l'UE</h3>
+            <p class="text-secondary small lh-lg mb-3">
+              Conformément à la réglementation applicable en matière de protection des données, vous pouvez demander l'accès à vos données personnelles, leur rectification ou leur effacement. Selon votre situation, vous pouvez également demander la limitation de leur traitement, vous opposer à celui-ci ou demander la portabilité de vos données.
+            </p>
+            <p class="text-secondary small lh-lg mb-0">
+              Vous pouvez exercer ces droits ou introduire une réclamation auprès de l'autorité de contrôle compétente. Pour toute demande concernant vos données personnelles, contactez-nous via la page Contact.
+            </p>
+          </div>
+
+          <!-- 09 Nous contacter -->
+          <div id="contact-section" class="pb-4">
+            <h3 class="h5 fw-bold text-dark mb-3"><span class="text-teal me-2">09</span> Nous contacter</h3>
+            <p class="text-secondary small lh-lg mb-3">
+              Pour toute question ou demande relative à vos données personnelles, notre équipe est à votre disposition.
+            </p>
+            <a routerLink="/Contact" class="btn btn-outline-dark rounded-pill px-4">
+              Contacter ADTB
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

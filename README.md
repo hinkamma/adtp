@@ -2,12 +2,34 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
 
+## EmailJS configuration
+
+The contact form and both quote forms use EmailJS from the browser when its
+service ID, template ID, and public key are set in
+`src/app/shared/emailjs.config.ts`. Without those values, the forms open a
+pre-filled email draft addressed to ADTB; the user must confirm sending in
+their email application. The public key is intended for client-side use; do
+not put a private key in the application.
+
+Set the template's **To Email** to `{{to_email}}`, **Reply To** to
+`{{reply_to}}`, **From Name** to `{{from_name}}`, and **Subject** to
+`{{subject}}`. The application supplies the recipient as
+`freddyrolandhinkamma877@gmail.com`. The message body can use:
+
+- `{{request_type}}`: contact or quote request
+- `{{from_name}}`, `{{reply_to}}`, and `{{telephone}}`: visitor's details
+- `{{code_postal}}` and `{{type_travaux}}`: quote details (`Non renseigné` when unavailable)
+- `{{message}}`: project description
+
+In EmailJS, restrict the public key to the deployed website's allowed origins
+and configure the service's sending limits.
+
 ## Development server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.

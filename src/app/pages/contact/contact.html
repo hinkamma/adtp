@@ -57,7 +57,7 @@
       <div class="row g-4">
         <!-- Carte 1 : Téléphone -->
         <div class="col-md-4">
-          <div class="contact-info-card p-4 rounded-3 h-100 d-flex flex-column justify-content-between">
+          <a href="tel:+33160751664" aria-label="Appeler ADTB au 01 60 75 16 64" class="contact-info-card p-4 rounded-3 h-100 d-flex flex-column justify-content-between text-decoration-none text-dark">
             <div>
               <div class="d-flex align-items-center gap-2 mb-3">
                 <img src="/assets/icons/Background (2).png" alt="Téléphone" width="22" height="22" class="custom-icon">
@@ -66,32 +66,32 @@
               <h3 class="h4 fw-bold text-dark mb-2">01 60 75 16 64</h3>
               <p class="text-muted small mb-4">Parlons de votre projet de rénovation.</p>
             </div>
-            <a href="tel:0160751664" class="contact-link fw-bold text-decoration-none small d-inline-flex align-items-center">
+            <span class="contact-link fw-bold text-decoration-none small d-inline-flex align-items-center">
               Appelez-nous <span class="ms-2">&nearr;</span>
-            </a>
-          </div>
+            </span>
+          </a>
         </div>
 
         <!-- Carte 2 : E-mail -->
         <div class="col-md-4">
-          <div class="contact-info-card p-4 rounded-3 h-100 d-flex flex-column justify-content-between">
+          <a [href]="'mailto:' + emailAddress" [attr.aria-label]="'Envoyer un e-mail à ' + emailAddress" class="contact-info-card p-4 rounded-3 h-100 d-flex flex-column justify-content-between text-decoration-none text-dark">
             <div>
               <div class="d-flex align-items-center gap-2 mb-3">
                 <img src="/assets/icons/Background (1).png" alt="E-mail" width="22" height="22" class="custom-icon">
                 <span class="fw-bold small text-dark">Par e-mail</span>
               </div>
-              <h3 class="h6 fw-bold text-dark mb-2 text-break">contact@adtb-renov.com</h3>
+              <h3 class="h6 fw-bold text-dark mb-2 text-break">{{ emailAddress }}</h3>
               <p class="text-muted small mb-4">Contactez-nous pour échanger sur vos travaux.</p>
             </div>
-            <a href="mailto:contact@adtb-renov.com" class="contact-link fw-bold text-decoration-none small d-inline-flex align-items-center">
+            <span class="contact-link fw-bold text-decoration-none small d-inline-flex align-items-center">
               Envoyez un e-mail <span class="ms-2">&nearr;</span>
-            </a>
-          </div>
+            </span>
+          </a>
         </div>
 
         <!-- Carte 3 : Adresse -->
         <div class="col-md-4">
-          <div class="contact-info-card p-4 rounded-3 h-100 d-flex flex-column justify-content-between">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=22%20rue%20Cl%C3%A9ment%20Ader%2091280%20Saint-Pierre-du-Perray%20France" target="_blank" rel="noopener noreferrer" aria-label="Itinéraire vers 22 rue Clément Ader, 91280 Saint-Pierre-du-Perray" class="contact-info-card p-4 rounded-3 h-100 d-flex flex-column justify-content-between text-decoration-none text-dark">
             <div>
               <div class="d-flex align-items-center gap-2 mb-3">
                 <img src="/assets/icons/Background.png" alt="Adresse" width="22" height="22" class="custom-icon">
@@ -101,10 +101,10 @@
               <h3 class="h6 fw-bold text-dark mb-2">91280 Saint-Pierre-du-Perray</h3>
               <p class="text-muted small mb-4">France</p>
             </div>
-            <a href="https://maps.google.com" target="_blank" class="contact-link fw-bold text-decoration-none small d-inline-flex align-items-center">
+            <span class="contact-link fw-bold text-decoration-none small d-inline-flex align-items-center">
               Voir l'itinéraire <span class="ms-2">&nearr;</span>
-            </a>
-          </div>
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -136,30 +136,42 @@
           <!-- Formulaire à droite -->
           <div class="col-lg-7">
             <div class="form-card bg-white p-4 p-md-4 rounded-3 shadow-sm">
-              <form class="row g-3">
+              <div *ngIf="notice" class="contact-toast alert mb-4 d-flex align-items-start gap-2"
+                   [class.alert-success]="notice.type === 'success'"
+                   [class.alert-danger]="notice.type === 'error'"
+                   [class.alert-info]="notice.type === 'info'"
+                   role="status" aria-live="polite">
+                <i class="bi" [class.bi-check-circle-fill]="notice.type === 'success'"
+                   [class.bi-exclamation-triangle-fill]="notice.type === 'error'"
+                   [class.bi-info-circle-fill]="notice.type === 'info'"></i>
+                <span>{{ notice.message }}</span>
+                <button type="button" class="btn-close ms-auto" aria-label="Fermer la notification"
+                        (click)="notice = null"></button>
+              </div>
+              <form class="row g-3" (ngSubmit)="onSubmit()" autocomplete="off">
                 <div class="col-md-6">
                   <label class="form-label x-small fw-bold text-muted">Votre nom <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control form-control-sm py-2" placeholder="Nom et prénom">
+                  <input type="text" class="form-control form-control-sm py-2" placeholder="Nom et prénom" [(ngModel)]="formData.nom" name="nom" autocomplete="off" required>
                 </div>
                 <div class="col-md-6">
                   <div class="d-flex justify-content-between align-items-center">
                     <label class="form-label x-small fw-bold text-muted">Votre téléphone</label>
                     <span class="x-small text-muted fw-normal">Facultatif</span>
                   </div>
-                  <input type="tel" class="form-control form-control-sm py-2" placeholder="Numéro de téléphone">
+                  <input type="tel" class="form-control form-control-sm py-2" placeholder="Numéro de téléphone" [(ngModel)]="formData.telephone" name="telephone" autocomplete="off">
                 </div>
                 <div class="col-12">
                   <label class="form-label x-small fw-bold text-muted">Votre e-mail <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control form-control-sm py-2" placeholder="vous@exemple.fr">
+                  <input type="email" class="form-control form-control-sm py-2" placeholder="vous@exemple.fr" [(ngModel)]="formData.email" name="email" autocomplete="off" required>
                 </div>
                 <div class="col-12">
                   <label class="form-label x-small fw-bold text-muted">Votre projet <span class="text-danger">*</span></label>
-                  <textarea class="form-control form-control-sm" rows="4" placeholder="Décrivez votre projet de rénovation et les travaux souhaités..."></textarea>
+                  <textarea class="form-control form-control-sm" rows="4" placeholder="Décrivez votre projet de rénovation et les travaux souhaités..." [(ngModel)]="formData.projet" name="projet" autocomplete="off" required></textarea>
                 </div>
                 <div class="col-12 d-flex justify-content-between align-items-center mt-4">
                   <span class="x-small text-muted"><span class="text-danger">*</span> Champs obligatoires</span>
-                  <button type="submit" class="btn btn-teal-submit text-white px-4 py-2.5 fw-bold d-flex align-items-center">
-                    Envoyer ma demande <span class="ms-2">&rarr;</span>
+                  <button type="submit" class="btn btn-teal-submit text-white px-4 py-2.5 fw-bold d-flex align-items-center" [disabled]="submitting">
+                    {{ submitting ? 'Envoi en cours…' : 'Envoyer ma demande' }} <span class="ms-2">&rarr;</span>
                   </button>
                 </div>
               </form>

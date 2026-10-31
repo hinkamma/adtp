@@ -15,6 +15,7 @@ export class Services {
 
   services = [
     {
+      id: 'expertise-isolation-hydrofuge',
       tag: 'NETTOYAGE ET TRAITEMENT HYDROFUGE',
       title: 'Une toiture propre et protégée durablement',
       description: 'Préservez votre couverture grâce au nettoyage et au traitement hydrofuge de toiture. ADTB élimine les mousses et les salissures, tout en renforçant la protection de vos tuiles contre l’humidité et les infiltrations d’eau.',
@@ -24,9 +25,9 @@ export class Services {
         'Protection contre l’humidité et les infiltrations d’eau'
       ],
       image: '/assets/imgs/1974e4172d18bb19c71e521508ddf7f807d571da.png',
-      link: '/expertise-isolation-hydrofuge'
     },
     {
+      id: 'isolation-des-combles',
       tag: 'ISOLATION THERMIQUE',
       title: 'Améliorez votre confort et réduisez les pertes de chaleur',
       description: 'Une bonne isolation thermique améliore le confort de votre logement en toute saison. ADTB vous accompagne dans vos travaux d’isolation des combles, des rampants de toiture et des murs extérieurs pour optimiser la performance énergétique de votre habitat.',
@@ -36,9 +37,9 @@ export class Services {
         'Amélioration du confort thermique et de la performance énergétique'
       ],
       image: '/assets/imgs/Isolation.png',
-      link: '/expertiseIsolationThermique'
     },
     {
+      id: 'expertise-trait-humidite',
       tag: 'TRAITEMENT DE L’HUMIDITÉ',
       title: 'Assainissez vos murs et protégez votre habitat',
       description: 'Murs humides, moisissures ou remontées capillaires : ADTB identifie les causes de l’humidité et vous propose des solutions adaptées pour assainir durablement votre logement et protéger vos murs.',
@@ -48,9 +49,9 @@ export class Services {
         'Cuvelage et protection des murs contre l’humidité'
       ],
       image: '/assets/imgs/Traitement humidité.png',
-      link: '/expertise-trait-humidite'
     },
     {
+      id: 'expertise-charpente',
       tag: 'CHARPENTE & BOIS',
       title: 'Traitement de charpente et protection du bois',
       description: 'Les vrillettes, Capricornes et autres insectes xylophages peuvent endommager vos bois de charpente et compromettre la solidité de votre habitation.',
@@ -60,9 +61,9 @@ export class Services {
         'Protection préventive et curative des bois de charpente'
       ],
       image: '/assets/imgs/Figure (3).png',
-      link: '/expertise-charpente'
     },
     {
+      id: 'expertise-renov-interne',
       tag: 'RÉNOVATION INTÉRIEURE ET AMÉNAGEMENT DE L’HABITAT',
       title: 'Transformez votre intérieur en un espace qui vous ressemble',
       description: 'Envie de moderniser votre maison ou de rénover votre appartement ? ADTB vous accompagne dans vos travaux de rénovation intérieure et d’aménagement, pour créer des espaces fonctionnels, confortables et adaptés à votre mode de vie.',
@@ -72,7 +73,6 @@ export class Services {
         'Travaux d’isolation intérieure et amélioration du confort thermique'
       ],
       image: '/assets/imgs/df20f2d73f832c5729eeaece9a1ff8eb59a0ed0a.jpg',
-      link: '/Expertise-renov-interne'
     }
   ];
 

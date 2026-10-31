@@ -70,7 +70,7 @@ export class Prestations {
     },
     {
       id: 'pompe-chaleur',
-      title: 'Pompes A C',
+      title: 'Pompe à chaleur et ventilation',
       description: 'Installation de VMC/VMI pour réguler le taux d’hygrométrie et purifier l’air intérieur.',
       image: '/assets/imgs/climatiseur.png',
       badge: 'Confort',

@@ -1,0 +1,66 @@
+<main class="plan-page">
+  <section class="plan-hero position-relative text-white py-5">
+    <div class="plan-hero-overlay"></div>
+    <div class="container position-relative z-index-1 py-lg-4">
+      <div class="row align-items-center min-vh-40">
+        <div class="col-lg-8 py-4">
+          <span class="text-uppercase fw-bold text-orange small d-block mb-2">NAVIGATION</span>
+          <h1 class="display-5 fw-bold mb-3">Plan du site</h1>
+          <p class="text-white-50 lead mb-0">
+            Retrouvez en un seul endroit les pages et les prestations proposées par ADTB.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-white py-3 border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item">
+            <a routerLink="/" class="text-decoration-none text-muted">Accueil</a>
+          </li>
+          <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">Plan du site</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <section class="py-5 bg-white">
+    <div class="container py-lg-4">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <span class="plan-section-label">PAGES DU SITE</span>
+          <h2 class="h2 fw-bold text-dark mt-2 mb-4">Explorez ADTB</h2>
+          <div class="d-flex flex-column gap-3">
+            <a *ngFor="let page of pages" [routerLink]="page.link"
+               class="plan-link-card p-3 rounded-3 d-flex align-items-center justify-content-between gap-3 text-decoration-none">
+              <span>
+                <span class="d-block fw-bold text-dark">{{ page.title }}</span>
+                <span class="d-block small text-muted mt-1">{{ page.description }}</span>
+              </span>
+              <i class="bi bi-arrow-right text-teal flex-shrink-0"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <span class="plan-section-label">NOS DOMAINES D’INTERVENTION</span>
+          <h2 class="h2 fw-bold text-dark mt-2 mb-4">Les prestations</h2>
+          <div class="d-flex flex-column gap-3">
+            <a *ngFor="let expertise of expertises"
+               [routerLink]="['/prestation-detail', expertise.id]"
+               class="plan-link-card p-3 rounded-3 d-flex align-items-center justify-content-between gap-3 text-decoration-none">
+              <span>
+                <span class="d-block fw-bold text-dark">{{ expertise.title }}</span>
+                <span class="d-block small text-muted mt-1">{{ expertise.description }}</span>
+              </span>
+              <i class="bi bi-arrow-right text-teal flex-shrink-0"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

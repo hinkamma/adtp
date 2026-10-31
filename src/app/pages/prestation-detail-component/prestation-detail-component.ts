@@ -145,21 +145,21 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
   },
 
   'isolation-exterieure': {
-    id: 'toiture',
+    id: 'isolation-exterieure',
     heroTitle: 'Isolation thermique par l’extérieur',
     heroImage: '/assets/imgs/Réalisation ADTB 7.png',
-    category: 'UN CONFORT THERMIQUE DURABLE',
-    title: 'Améliorez durablement le confort de votre maison grâce à une enveloppe thermique extérieure performante.',
-    description1: 'L’isolation thermique par l’extérieur (ITE) améliore les performances énergétiques de votre maison, réduit les pertes de chaleur et valorise votre façade. Chaque projet est étudié selon les caractéristiques de votre support, votre environnement et vos besoins.',
-    description2: 'Nos couvreurs qualifiés interviennent avec rigueur pour assurer une étanchéité parfaite et prolonger la durée de vie de votre toit.',
-    mainImage: '/assets/imgs/58844a17038808e523cff276a8f54d9cf4eada09.jpg',
-    advantagesTitle: 'LES AVANTAGES D’UNE TOITURE SAINE',
-    advantagesSubtitle: 'Protection et pérennité de votre habitat.',
+    category: 'ISOLATION ET RÉNOVATION DE FAÇADE',
+    title: 'Améliorez durablement le confort de votre maison grâce à l’isolation thermique par l’extérieur.',
+    description1: 'L’isolation thermique par l’extérieur (ITE) renforce l’isolation de votre maison et contribue à limiter les pertes de chaleur à travers les murs.',
+    description2: 'La rénovation de façade permet d’associer amélioration du confort thermique et remise en état de l’aspect extérieur de votre habitation.',
+    mainImage: '/assets/imgs/Réalisation ADTB 7.png',
+    advantagesTitle: 'LES AVANTAGES DE L’ISOLATION EXTÉRIEURE',
+    advantagesSubtitle: 'Une façade rénovée et un meilleur confort thermique.',
     advantages: [
-      { title: 'Étanchéité garantie', desc: 'Suppression totale des infiltrations d’eau et d’humidité.' },
-      { title: 'Résistance accrue', desc: 'Matériaux robustes face aux tempêtes et aux UV.' },
-      { title: 'Esthétique valorisée', desc: 'Un aspect visuel remis à neuf pour l’ensemble de la maison.' },
-      { title: 'Tranquillité d’esprit', desc: 'Intervention sécurisée et garantie décennale.' }
+      { title: 'Moins de pertes de chaleur', desc: 'Renforcez l’enveloppe thermique de votre maison par l’extérieur.' },
+      { title: 'Confort thermique amélioré', desc: 'Profitez d’une température intérieure plus agréable au fil des saisons.' },
+      { title: 'Façade rénovée', desc: 'Associez isolation et amélioration de l’aspect extérieur de votre habitation.' },
+      { title: 'Projet adapté à votre maison', desc: 'Les solutions sont étudiées selon les caractéristiques de votre façade.' }
     ]
   },
 
@@ -202,6 +202,25 @@ export const PRESTATIONS_DATABASE: { [key: string]: PrestationData } = {
       { title: 'Finitions de qualité', desc: 'Peintures, sols et cloisons posés dans les règles de l’art.' },
       { title: 'Confort de vie', desc: 'Isolation phonique et agencement ergonomique.' },
       { title: 'Sur-mesure', desc: 'Des solutions personnalisées selon vos envies.' }
+    ]
+  },
+
+  'pompe-chaleur': {
+    id: 'pompe-chaleur',
+    heroTitle: 'Pompe à chaleur et ventilation',
+    heroImage: '/assets/imgs/climatiseur.png',
+    category: 'CHAUFFAGE ET QUALITÉ DE L’AIR',
+    title: 'Améliorez le confort thermique et la qualité de l’air de votre habitat.',
+    description1: 'ADTB vous accompagne dans l’installation de solutions de chauffage et de ventilation adaptées à votre logement.',
+    description2: 'La pompe à chaleur contribue au chauffage de votre habitation. Les systèmes de ventilation VMC ou VMI favorisent le renouvellement de l’air et aident à réguler l’humidité intérieure.',
+    mainImage: '/assets/imgs/climatiseur.png',
+    advantagesTitle: 'LES AVANTAGES DE NOS SOLUTIONS DE CONFORT',
+    advantagesSubtitle: 'Une température agréable et un air intérieur renouvelé.',
+    advantages: [
+      { title: 'Chauffage adapté', desc: 'Choisissez une solution de chauffage pensée pour les besoins de votre logement.' },
+      { title: 'Air renouvelé', desc: 'La ventilation favorise le renouvellement de l’air intérieur.' },
+      { title: 'Humidité mieux régulée', desc: 'Une ventilation adaptée contribue à réguler l’hygrométrie de votre habitat.' },
+      { title: 'Étude de votre projet', desc: 'Les équipements sont sélectionnés selon votre maison et vos besoins.' }
     ]
   }
 

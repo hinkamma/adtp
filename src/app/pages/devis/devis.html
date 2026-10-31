@@ -41,55 +41,62 @@
             </span>
             <h2 class="fw-bold fs-3 text-dark mb-4">Parlez-nous de votre projet</h2>
 
-            <form (ngSubmit)="onSubmit()">
+            <div *ngIf="notice" class="alert d-flex align-items-center gap-2"
+                 [class.alert-success]="notice.type === 'success'"
+                 [class.alert-danger]="notice.type === 'error'"
+                 [class.alert-info]="notice.type === 'info'"
+                 role="status" aria-live="polite">
+              <i class="bi" [class.bi-check-circle-fill]="notice.type === 'success'"
+                 [class.bi-exclamation-triangle-fill]="notice.type === 'error'"
+                 [class.bi-info-circle-fill]="notice.type === 'info'"></i>
+              <span>{{ notice.message }}</span>
+            </div>
+            <form (ngSubmit)="onSubmit()" autocomplete="off">
               <div class="row g-3">
                 
                 <!-- Nom & Prénom -->
                 <div class="col-md-6">
                   <label for="nom" class="form-label small fw-bold text-dark">Nom et Prénom *</label>
-                  <input type="text" id="nom" class="form-control" [(ngModel)]="formData.nom" name="nom" placeholder="Jean Dupont" required>
+                  <input type="text" id="nom" class="form-control" [(ngModel)]="formData.nom" name="nom" autocomplete="off" placeholder="Jean Dupont" required>
                 </div>
 
                 <!-- Téléphone -->
                 <div class="col-md-6">
                   <label for="telephone" class="form-label small fw-bold text-dark">Téléphone *</label>
-                  <input type="tel" id="telephone" class="form-control" [(ngModel)]="formData.telephone" name="telephone" placeholder="06 12 34 56 78" required>
+                  <input type="tel" id="telephone" class="form-control" [(ngModel)]="formData.telephone" name="telephone" autocomplete="off" placeholder="06 12 34 56 78" required>
                 </div>
 
                 <!-- Email -->
                 <div class="col-md-6">
                   <label for="email" class="form-label small fw-bold text-dark">Adresse Email *</label>
-                  <input type="email" id="email" class="form-control" [(ngModel)]="formData.email" name="email" placeholder="jean.dupont@exemple.fr" required>
+                  <input type="email" id="email" class="form-control" [(ngModel)]="formData.email" name="email" autocomplete="off" placeholder="jean.dupont@exemple.fr" required>
                 </div>
 
                 <!-- Code Postal -->
                 <div class="col-md-6">
                   <label for="codePostal" class="form-label small fw-bold text-dark">Code Postal (Seine-et-Marne) *</label>
-                  <input type="text" id="codePostal" class="form-control" [(ngModel)]="formData.codePostal" name="codePostal" placeholder="77000" required>
+                  <input type="text" id="codePostal" class="form-control" [(ngModel)]="formData.codePostal" name="codePostal" autocomplete="off" placeholder="77000" required>
                 </div>
 
                 <!-- Type de travaux -->
                 <div class="col-12">
                   <label for="typeTravaux" class="form-label small fw-bold text-dark">Type de travaux concernés *</label>
-                  <select id="typeTravaux" class="form-select" [(ngModel)]="formData.typeTravaux" name="typeTravaux">
-                    <option value="Toiture">Rénovation & Toiture</option>
-                    <option value="Isolation">Isolation thermique (Intérieure / Extérieure / Combles)</option>
-                    <option value="Humidite">Traitement de l'humidité & Infiltrations</option>
-                    <option value="Ventilation">Ventilation (VMI / VMC)</option>
-                    <option value="Autre">Autre projet de rénovation globale</option>
+                  <select id="typeTravaux" class="form-select" [(ngModel)]="formData.typeTravaux" name="typeTravaux" autocomplete="off" required>
+                    <option value="" disabled>Sélectionnez une prestation</option>
+                    <option *ngFor="let prestation of prestations" [value]="prestation.id">{{ prestation.title }}</option>
                   </select>
                 </div>
 
                 <!-- Message -->
                 <div class="col-12">
                   <label for="message" class="form-label small fw-bold text-dark">Précisions sur votre projet *</label>
-                  <textarea id="message" class="form-control" rows="4" [(ngModel)]="formData.message" name="message" placeholder="Décrivez brièvement vos besoins..." required></textarea>
+                  <textarea id="message" class="form-control" rows="4" [(ngModel)]="formData.message" name="message" autocomplete="off" placeholder="Décrivez brièvement vos besoins..." required></textarea>
                 </div>
 
                 <!-- Bouton de Soumission -->
                 <div class="col-12 mt-4">
-                  <button type="submit" class="btn btn-teal text-white w-100 py-3 rounded fw-bold d-flex align-items-center justify-content-center gap-2">
-                    <span>Envoyer ma demande de devis</span>
+                  <button type="submit" class="btn btn-teal text-white w-100 py-3 rounded fw-bold d-flex align-items-center justify-content-center gap-2" [disabled]="submitting">
+                    <span>{{ submitting ? 'Envoi en cours…' : 'Envoyer ma demande de devis' }}</span>
                     <i class="bi bi-arrow-right"></i>
                   </button>
                  <p class="x-small text-muted text-center mt-3 mb-0">
@@ -146,8 +153,8 @@
             <div class="bg-dark text-white p-4 rounded-3 shadow-sm">
               <h5 class="fw-bold mb-2">Besoin d'une réponse immédiate ?</h5>
               <p class="small text-light opacity-75 mb-3">Nos conseillers sont joignables du lundi au vendredi par téléphone.</p>
-              <a href="tel:0100000000" class="btn btn-outline-light btn-sm rounded-pill px-4 py-2 text-decoration-none fw-bold">
-                <i class="bi bi-telephone-fill me-2"></i> 01 XX XX XX XX
+              <a href="tel:+33160751664" class="btn btn-outline-light btn-sm rounded-pill px-4 py-2 text-decoration-none fw-bold">
+                <i class="bi bi-telephone-fill me-2"></i> 01 60 75 16 64
               </a>
             </div>
 

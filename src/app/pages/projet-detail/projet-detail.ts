@@ -2,6 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgForOf } from '@angular/common';
 
+interface ProjetData {
+  id: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  stepsTitle: string;
+  steps: string[];
+  images?: string[];
+}
+
 @Component({
   selector: 'app-projet-detail',
   imports: [RouterLink, NgForOf],
@@ -12,7 +23,7 @@ export class ProjetDetail {
 
 
   // Base de données complète des 12 chantiers ADTB
-  projetsData: { [key: string]: any } = {
+  projetsData: Record<string, ProjetData> = {
     '1': {
       id: '1',
       category: '01 TRAITEMENT DE L\'HUMIDITÉ DES MURS PORTEURS',
@@ -53,7 +64,7 @@ export class ProjetDetail {
         'Pose des panneaux isolants haute performance.',
         'Application de l\'enduit de finition de votre choix.'
       ],
-      images: ['assets/imgs/ccac6fcda86ab2e31cf26278aeebf7b6308bdf2e.jpg', 'assets/imgs/ccac6fcda86ab2e31cf26278aeebf7b6308bdf2e.jpg']
+      images: ['assets/imgs/ccac6fcda86ab2e31cf26278aeebf7b6308bdf2e.jpg', 'assets/imgs/8af9853689bc2f1da0e633bbc3315ef7085cfb22.jpg']
     },
     '4': {
       id: '4',
@@ -81,12 +92,12 @@ export class ProjetDetail {
         'Vérification de la ventilation de la toiture.',
         'Garantie d\'un confort thermique optimal été comme hiver.'
       ],
-           images: ['assets/imgs/310b149f74e6f2d411d5e98eb58acde44308c4c9.jpg', 'assets/imgs/244e22bfc6a6bc1abb118a1d8eab48e1379f51ad.jpg', 'assets/imgs/244e22bfc6a6bc1abb118a1d8eab48e1379f51ad.jpg']
+      images: ['assets/imgs/310b149f74e6f2d411d5e98eb58acde44308c4c9.jpg', 'assets/imgs/244e22bfc6a6bc1abb118a1d8eab48e1379f51ad.jpg']
     },
     '6': {
       id: '6',
       category: '06 ENTRETIEN DE TOITURE',
-      title: 'Nettoyage et traitement hydrofuge de toiture',
+      title: 'Remplacement de la toiture de la Mairie de Guignes',
       subtitle: 'ADTB : protection durable contre les mousses',
       description: 'Élimination en profondeur des mousses, lichens et pollution, suivie de l\'application d\'un traitement hydrofuge imperméabilisant.',
       stepsTitle: 'LES ÉTAPES CLÉS DU DÉMOUSSAGE',
@@ -184,7 +195,13 @@ export class ProjetDetail {
   };
 
 
-  currentProjet: any = this.projetsData['1'];
+  currentProjet: ProjetData = this.projetsData['1'];
+
+  get projectImages(): string[] {
+    return (this.currentProjet.images ?? [])
+      .filter(image => typeof image === 'string' && image.trim().length > 0)
+      .slice(0, 3);
+  }
 
   constructor(private route: ActivatedRoute) {}
 
